@@ -1,13 +1,12 @@
 #!/bin/sh -ex
 
-#sudo chown -R opam:opam /home/opam
-#cd /home/opam
-sudo apt-get -y install libssl-dev
 opam remote add mirage git://github.com/mirage/mirage-dev
-opam installext -j 3 mirage
+opam installext -j 3 mirage ssl
 eval `opam config env`
 git clone git://github.com/mirage/mirage-www
 cd mirage-www
 export MODE=unix
-make configure && make build
+make configure && make depend && make build
+export MODE=xen
+make configure && make depend && make build
 echo MIRAGE WORKS
