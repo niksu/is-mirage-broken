@@ -1,5 +1,6 @@
 #!/bin/sh -ex
 
+set -e
 opam remote add mirage git://github.com/mirage/mirage-dev
 opam update -u
 opam installext -j 3 mirage ssl
