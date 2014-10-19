@@ -1,5 +1,7 @@
 #!/bin/sh -ex
 
+set -e
+
 opam remote add mirage git://github.com/mirage/mirage-dev
 opam installext -j 3 mirage-http
 echo MIRAGE WORKS
