@@ -3,7 +3,7 @@
 sudo chown -R opam:opam /home/opam
 cd /home/opam
 opam remote add mirage git://github.com/mirage/mirage-dev
-opam installext -j 3 mirage-www
+opam installext -j 3 mirage
 eval `opam config env`
 git clone git://github.com/mirage/mirage-skeleton
 cd mirage-skeleton
