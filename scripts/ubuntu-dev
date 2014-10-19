@@ -1,6 +1,7 @@
 #!/bin/sh -ex
 
-sudo chown -R opam:opam /home/opam/.opam
+sudo chown opam:opam /home/opam
+sudo chown opam:opam /home/opam/.opam
 opam remote add mirage git://github.com/mirage/mirage-dev
 opam installext -j 3 mirage-www
 eval `opam config env`
