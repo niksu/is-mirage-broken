@@ -2,7 +2,7 @@
 
 #sudo chown -R opam:opam /home/opam
 #cd /home/opam
-sudo apt-get install libssl-dev
+sudo apt-get -y install libssl-dev
 opam remote add mirage git://github.com/mirage/mirage-dev
 opam installext -j 3 mirage
 eval `opam config env`
