@@ -1,0 +1,8 @@
+#!/bin/sh -ex
+
+opam remote add mirage git://github.com/mirage/mirage-dev
+opam installext -j 3 mirage-www
+eval `opam config env`
+git clone git://github.com/mirage/mirage-skeleton
+cd mirage-skeleton
+make configure && make build
