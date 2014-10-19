@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-git pull
+git pull --no-edit
 
 for script in mirage-www mirage-skeleton; do
   for distro in ubuntu-trusty centos-7; do
