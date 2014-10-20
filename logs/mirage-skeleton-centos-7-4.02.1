@@ -3,7 +3,7 @@
 + repo=avsm/docker-opam
 + docker=docker.io
 + pwd
-+ docker.io run -v /root/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.02.1 sh -c /scripts/mirage-skeleton
++ sudo docker.io run --rm=true -v /home/opam/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.02.1 sh -c /scripts/mirage-skeleton
 + set -e
 + opam remote add mirage git://github.com/mirage/mirage-dev
 [[32mmirage[m] Fetching git://github.com/mirage/mirage-dev
@@ -32,14 +32,10 @@ CentOS 7 depexts: openssl-devel
 + '[' openssl-devel '!=' '' ']'
 + sudo yum install -y openssl-devel
 Loaded plugins: fastestmirror
-base                                                     | 3.6 kB     00:00     
-extras                                                   | 3.4 kB     00:00     
-home_ocaml                                               | 1.2 kB     00:00     
-updates                                                  | 3.4 kB     00:00     
 Loading mirror speeds from cached hostfile
- * base: mirrors.seas.harvard.edu
- * extras: centos.chi.host-engine.com
- * updates: centos.mirror.constant.com
+ * base: mirrors.mit.edu
+ * extras: mirror.cogentco.com
+ * updates: mirror.cc.columbia.edu
 Resolving Dependencies
 --> Running transaction check
 ---> Package openssl-devel.x86_64 1:1.0.1e-34.el7_0.6 will be installed
@@ -97,16 +93,16 @@ Downloading packages:
 Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 (2/10): krb5-devel-1.11.3- 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:00     
 (2/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
-(4/10): libselinux-devel-2 4% [-                ]  0.0 B/s | 180 kB   --:-- ETA (3/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:01     
-(4/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
-(5/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
-(6/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
-(7/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
-(10/10): pcre-devel-8.32-1 27% [====            ] 640 kB/s | 984 kB   00:04 ETA (8/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
-(9/10): openssl-devel-1.0. 52% [========        ] 779 kB/s | 1.8 MB   00:02 ETA (9/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm          | 941 kB   00:00     
-(10/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm        | 1.2 MB   00:01     
+(4/10): libselinux-devel-2 18% [==-             ]  0.0 B/s | 667 kB   --:-- ETA (3/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:00     
+(4/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
+(5/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
+(6/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
+(7/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
+(8/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
+(10/10): openssl-libs-1.0. 40% [======          ] 851 kB/s | 1.4 MB   00:02 ETA (9/10): openssl-devel-1.0. 52% [========        ] 867 kB/s | 1.8 MB   00:01 ETA (9/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm          | 941 kB   00:00     
+(10/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm        | 1.2 MB   00:00     
 --------------------------------------------------------------------------------
-Total                                              1.4 MB/s | 3.5 MB  00:02     
+Total                                              1.7 MB/s | 3.5 MB  00:02     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -186,9 +182,6 @@ The following actions will be performed:
 [[32mtype_conv.112.01.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/type_conv-112.01.00.tar.gz
 
 [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
-Building ounit.2.0.0:
-  make build
-  make install
 Building optcomp.1.6:
   ./configure --prefix /home/opam/.opam/4.02.1
   make
@@ -196,6 +189,9 @@ Building optcomp.1.6:
 Building cmdliner.0.9.5:
   ocaml pkg/git.ml
   ocaml pkg/build.ml native=true native-dynlink=true
+Building ounit.2.0.0:
+  make build
+  make install
 Installing cmdliner.0.9.5.
 Building re.1.2.2:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
@@ -216,15 +212,15 @@ Building ocplib-endian.0.4:
   ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.02.1
   ocaml setup.ml -build
   ocaml setup.ml -install
-Installing type_conv.112.01.00.
-Building sexplib.112.01.00:
-  ./configure --enable-syntax
-  make
-  make install
 Installing ssl.0.4.7.
 Building lwt.2.4.5:
   ./configure --disable-libev --disable-react --enable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib
   make build
+  make install
+Installing type_conv.112.01.00.
+Building sexplib.112.01.00:
+  ./configure --enable-syntax
+  make
   make install
 Installing ocplib-endian.0.4.
 Installing sexplib.112.01.00.
@@ -265,9 +261,9 @@ Installing mirage.2.0.0.
 + git clone git://github.com/mirage/mirage-skeleton
 Cloning into 'mirage-skeleton'...
 remote: Counting objects: 1201, done.[K
-Receiving objects:   0% (1/1201)   Receiving objects:   1% (13/1201)   Receiving objects:   2% (25/1201)   Receiving objects:   3% (37/1201)   Receiving objects:   4% (49/1201)   Receiving objects:   5% (61/1201)   Receiving objects:   6% (73/1201)   Receiving objects:   7% (85/1201)   Receiving objects:   8% (97/1201)   Receiving objects:   9% (109/1201)   Receiving objects:  10% (121/1201)   Receiving objects:  11% (133/1201)   Receiving objects:  12% (145/1201)   Receiving objects:  13% (157/1201)   Receiving objects:  14% (169/1201)   Receiving objects:  15% (181/1201)   Receiving objects:  16% (193/1201)   Receiving objects:  17% (205/1201)   Receiving objects:  18% (217/1201)   Receiving objects:  19% (229/1201)   Receiving objects:  20% (241/1201)   Receiving objects:  21% (253/1201)   Receiving objects:  22% (265/1201)   Receiving objects:  23% (277/1201)   Receiving objects:  24% (289/1201)   Receiving objects:  25% (301/1201)   Receiving objects:  26% (313/1201)   Receiving objects:  27% (325/1201)   Receiving objects:  28% (337/1201)   Receiving objects:  29% (349/1201)   Receiving objects:  30% (361/1201)   Receiving objects:  31% (373/1201)   Receiving objects:  32% (385/1201)   Receiving objects:  33% (397/1201)   Receiving objects:  34% (409/1201)   Receiving objects:  35% (421/1201)   Receiving objects:  36% (433/1201)   Receiving objects:  37% (445/1201)   Receiving objects:  38% (457/1201)   Receiving objects:  39% (469/1201)   Receiving objects:  40% (481/1201)   Receiving objects:  41% (493/1201)   Receiving objects:  42% (505/1201)   Receiving objects:  43% (517/1201)   Receiving objects:  44% (529/1201)   Receiving objects:  45% (541/1201)   Receiving objects:  46% (553/1201)   Receiving objects:  47% (565/1201)   Receiving objects:  48% (577/1201)   Receiving objects:  49% (589/1201)   Receiving objects:  50% (601/1201)   Receiving objects:  51% (613/1201)   Receiving objects:  52% (625/1201)   Receiving objects:  53% (637/1201)   Receiving objects:  54% (649/1201)   Receiving objects:  55% (661/1201)   Receiving objects:  56% (673/1201)   Receiving objects:  57% (685/1201)   Receiving objects:  58% (697/1201)   Receiving objects:  59% (709/1201)   Receiving objects:  60% (721/1201)   Receiving objects:  61% (733/1201)   Receiving objects:  62% (745/1201)   Receiving objects:  63% (757/1201)   Receiving objects:  64% (769/1201)   Receiving objects:  65% (781/1201)   Receiving objects:  66% (793/1201)   Receiving objects:  67% (805/1201)   Receiving objects:  68% (817/1201)   Receiving objects:  69% (829/1201)   Receiving objects:  70% (841/1201)   Receiving objects:  71% (853/1201)   Receiving objects:  72% (865/1201)   Receiving objects:  73% (877/1201)   Receiving objects:  74% (889/1201)   Receiving objects:  75% (901/1201)   remote: Total 1201 (delta 0), reused 0 (delta 0)[K
-Receiving objects:  76% (913/1201)   Receiving objects:  77% (925/1201)   Receiving objects:  78% (937/1201)   Receiving objects:  79% (949/1201)   Receiving objects:  80% (961/1201)   Receiving objects:  81% (973/1201)   Receiving objects:  82% (985/1201)   Receiving objects:  83% (997/1201)   Receiving objects:  84% (1009/1201)   Receiving objects:  85% (1021/1201)   Receiving objects:  86% (1033/1201)   Receiving objects:  87% (1045/1201)   Receiving objects:  88% (1057/1201)   Receiving objects:  89% (1069/1201)   Receiving objects:  90% (1081/1201)   Receiving objects:  91% (1093/1201)   Receiving objects:  92% (1105/1201)   Receiving objects:  93% (1117/1201)   Receiving objects:  94% (1129/1201)   Receiving objects:  95% (1141/1201)   Receiving objects:  96% (1153/1201)   Receiving objects:  97% (1165/1201)   Receiving objects:  98% (1177/1201)   Receiving objects:  99% (1189/1201)   Receiving objects: 100% (1201/1201)   Receiving objects: 100% (1201/1201), 216.87 KiB | 0 bytes/s, done.
-Resolving deltas:   0% (0/561)   Resolving deltas:   1% (6/561)   Resolving deltas:   3% (19/561)   Resolving deltas:   4% (28/561)   Resolving deltas:   5% (33/561)   Resolving deltas:   6% (38/561)   Resolving deltas:   7% (40/561)   Resolving deltas:   9% (51/561)   Resolving deltas:  10% (60/561)   Resolving deltas:  11% (66/561)   Resolving deltas:  12% (69/561)   Resolving deltas:  13% (78/561)   Resolving deltas:  14% (79/561)   Resolving deltas:  15% (89/561)   Resolving deltas:  16% (91/561)   Resolving deltas:  17% (100/561)   Resolving deltas:  18% (101/561)   Resolving deltas:  19% (107/561)   Resolving deltas:  20% (117/561)   Resolving deltas:  21% (122/561)   Resolving deltas:  22% (126/561)   Resolving deltas:  24% (137/561)   Resolving deltas:  25% (141/561)   Resolving deltas:  26% (146/561)   Resolving deltas:  27% (152/561)   Resolving deltas:  28% (159/561)   Resolving deltas:  29% (165/561)   Resolving deltas:  30% (169/561)   Resolving deltas:  31% (174/561)   Resolving deltas:  34% (191/561)   Resolving deltas:  50% (285/561)   Resolving deltas:  51% (289/561)   Resolving deltas:  52% (292/561)   Resolving deltas:  53% (298/561)   Resolving deltas:  57% (320/561)   Resolving deltas:  59% (332/561)   Resolving deltas:  60% (338/561)   Resolving deltas:  61% (347/561)   Resolving deltas:  62% (348/561)   Resolving deltas:  63% (354/561)   Resolving deltas:  66% (375/561)   Resolving deltas:  67% (376/561)   Resolving deltas:  71% (403/561)   Resolving deltas:  72% (404/561)   Resolving deltas:  73% (411/561)   Resolving deltas:  76% (428/561)   Resolving deltas:  81% (457/561)   Resolving deltas:  82% (461/561)   Resolving deltas:  83% (467/561)   Resolving deltas:  86% (483/561)   Resolving deltas:  87% (492/561)   Resolving deltas:  89% (502/561)   Resolving deltas:  90% (506/561)   Resolving deltas:  91% (511/561)   Resolving deltas:  95% (534/561)   Resolving deltas:  96% (539/561)   Resolving deltas:  97% (547/561)   Resolving deltas:  98% (552/561)   Resolving deltas:  99% (559/561)   Resolving deltas: 100% (561/561)   Resolving deltas: 100% (561/561), done.
+Receiving objects:   0% (1/1201)   Receiving objects:   1% (13/1201)   Receiving objects:   2% (25/1201)   Receiving objects:   3% (37/1201)   Receiving objects:   4% (49/1201)   Receiving objects:   5% (61/1201)   Receiving objects:   6% (73/1201)   Receiving objects:   7% (85/1201)   Receiving objects:   8% (97/1201)   Receiving objects:   9% (109/1201)   Receiving objects:  10% (121/1201)   Receiving objects:  11% (133/1201)   Receiving objects:  12% (145/1201)   Receiving objects:  13% (157/1201)   Receiving objects:  14% (169/1201)   Receiving objects:  15% (181/1201)   Receiving objects:  16% (193/1201)   Receiving objects:  17% (205/1201)   Receiving objects:  18% (217/1201)   Receiving objects:  19% (229/1201)   Receiving objects:  20% (241/1201)   Receiving objects:  21% (253/1201)   Receiving objects:  22% (265/1201)   Receiving objects:  23% (277/1201)   Receiving objects:  24% (289/1201)   Receiving objects:  25% (301/1201)   Receiving objects:  26% (313/1201)   Receiving objects:  27% (325/1201)   Receiving objects:  28% (337/1201)   Receiving objects:  29% (349/1201)   Receiving objects:  30% (361/1201)   Receiving objects:  31% (373/1201)   Receiving objects:  32% (385/1201)   Receiving objects:  33% (397/1201)   Receiving objects:  34% (409/1201)   Receiving objects:  35% (421/1201)   Receiving objects:  36% (433/1201)   Receiving objects:  37% (445/1201)   Receiving objects:  38% (457/1201)   Receiving objects:  39% (469/1201)   Receiving objects:  40% (481/1201)   Receiving objects:  41% (493/1201)   Receiving objects:  42% (505/1201)   Receiving objects:  43% (517/1201)   Receiving objects:  44% (529/1201)   Receiving objects:  45% (541/1201)   Receiving objects:  46% (553/1201)   Receiving objects:  47% (565/1201)   Receiving objects:  48% (577/1201)   Receiving objects:  49% (589/1201)   Receiving objects:  50% (601/1201)   Receiving objects:  51% (613/1201)   Receiving objects:  52% (625/1201)   Receiving objects:  53% (637/1201)   Receiving objects:  54% (649/1201)   Receiving objects:  55% (661/1201)   Receiving objects:  56% (673/1201)   Receiving objects:  57% (685/1201)   Receiving objects:  58% (697/1201)   Receiving objects:  59% (709/1201)   Receiving objects:  60% (721/1201)   Receiving objects:  61% (733/1201)   Receiving objects:  62% (745/1201)   Receiving objects:  63% (757/1201)   Receiving objects:  64% (769/1201)   Receiving objects:  65% (781/1201)   Receiving objects:  66% (793/1201)   Receiving objects:  67% (805/1201)   Receiving objects:  68% (817/1201)   Receiving objects:  69% (829/1201)   Receiving objects:  70% (841/1201)   Receiving objects:  71% (853/1201)   Receiving objects:  72% (865/1201)   Receiving objects:  73% (877/1201)   Receiving objects:  74% (889/1201)   Receiving objects:  75% (901/1201)   Receiving objects:  76% (913/1201)   Receiving objects:  77% (925/1201)   Receiving objects:  78% (937/1201)   Receiving objects:  79% (949/1201)   Receiving objects:  80% (961/1201)   Receiving objects:  81% (973/1201)   Receiving objects:  82% (985/1201)   Receiving objects:  83% (997/1201)   remote: Total 1201 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  84% (1009/1201)   Receiving objects:  85% (1021/1201)   Receiving objects:  86% (1033/1201)   Receiving objects:  87% (1045/1201)   Receiving objects:  88% (1057/1201)   Receiving objects:  89% (1069/1201)   Receiving objects:  90% (1081/1201)   Receiving objects:  91% (1093/1201)   Receiving objects:  92% (1105/1201)   Receiving objects:  93% (1117/1201)   Receiving objects:  94% (1129/1201)   Receiving objects:  95% (1141/1201)   Receiving objects:  96% (1153/1201)   Receiving objects:  97% (1165/1201)   Receiving objects:  98% (1177/1201)   Receiving objects:  99% (1189/1201)   Receiving objects: 100% (1201/1201)   Receiving objects: 100% (1201/1201), 216.87 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/561)   Resolving deltas:   1% (6/561)   Resolving deltas:   3% (17/561)   Resolving deltas:   5% (30/561)   Resolving deltas:   6% (35/561)   Resolving deltas:   8% (47/561)   Resolving deltas:   9% (51/561)   Resolving deltas:  10% (58/561)   Resolving deltas:  11% (65/561)   Resolving deltas:  12% (69/561)   Resolving deltas:  14% (79/561)   Resolving deltas:  15% (88/561)   Resolving deltas:  16% (92/561)   Resolving deltas:  18% (101/561)   Resolving deltas:  19% (108/561)   Resolving deltas:  20% (117/561)   Resolving deltas:  21% (122/561)   Resolving deltas:  22% (124/561)   Resolving deltas:  24% (137/561)   Resolving deltas:  25% (141/561)   Resolving deltas:  26% (147/561)   Resolving deltas:  27% (152/561)   Resolving deltas:  28% (159/561)   Resolving deltas:  29% (166/561)   Resolving deltas:  30% (169/561)   Resolving deltas:  31% (174/561)   Resolving deltas:  34% (194/561)   Resolving deltas:  38% (216/561)   Resolving deltas:  39% (223/561)   Resolving deltas:  40% (229/561)   Resolving deltas:  43% (245/561)   Resolving deltas:  44% (247/561)   Resolving deltas:  46% (259/561)   Resolving deltas:  47% (264/561)   Resolving deltas:  53% (302/561)   Resolving deltas:  54% (304/561)   Resolving deltas:  58% (326/561)   Resolving deltas:  59% (332/561)   Resolving deltas:  60% (337/561)   Resolving deltas:  61% (344/561)   Resolving deltas:  62% (352/561)   Resolving deltas:  63% (354/561)   Resolving deltas:  70% (394/561)   Resolving deltas:  74% (416/561)   Resolving deltas:  75% (423/561)   Resolving deltas:  76% (430/561)   Resolving deltas:  77% (432/561)   Resolving deltas:  78% (442/561)   Resolving deltas:  80% (451/561)   Resolving deltas:  81% (458/561)   Resolving deltas:  82% (462/561)   Resolving deltas:  83% (466/561)   Resolving deltas:  84% (472/561)   Resolving deltas:  85% (479/561)   Resolving deltas:  86% (486/561)   Resolving deltas:  89% (500/561)   Resolving deltas:  90% (506/561)   Resolving deltas:  93% (523/561)   Resolving deltas:  95% (536/561)   Resolving deltas:  96% (539/561)   Resolving deltas:  97% (548/561)   Resolving deltas:  98% (550/561)   Resolving deltas:  99% (557/561)   Resolving deltas: 100% (561/561)   Resolving deltas: 100% (561/561), done.
 + cd mirage-skeleton
 + export MODE=unix
 + MODE=unix
@@ -455,9 +451,9 @@ Removing mirage-http.2.0.0.
 [31m#[m [31mpath[m         /home/opam/.opam/4.02.1/build/mirage-http.2.0.0
 [31m#[m [31mcompiler[m     4.02.1
 [31m#[m [31mexit-code[m    2
-[31m#[m [31menv-file[m     /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10157-6cc03f.env
-[31m#[m [31mstdout-file[m  /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10157-6cc03f.out
-[31m#[m [31mstderr-file[m  /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10157-6cc03f.err
+[31m#[m [31menv-file[m     /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10153-6cc03f.env
+[31m#[m [31mstdout-file[m  /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10153-6cc03f.out
+[31m#[m [31mstderr-file[m  /home/opam/.opam/4.02.1/build/mirage-http.2.0.0/mirage-http-10153-6cc03f.err
 [31m### stdout ###
 [m[31m# [mmake[1]: Entering directory `/home/opam/.opam/4.02.1/build/mirage-http.2.0.0'
 [31m# [mmake[1]: Leaving directory `/home/opam/.opam/4.02.1/build/mirage-http.2.0.0'
@@ -469,7 +465,7 @@ Removing mirage-http.2.0.0.
 [31m# [mWarning 3: deprecated: Lazy.lazy_from_fun
 [31m# [mUse Lazy.from_fun instead.
 [31m# [mocamlfind: Package `conduit.mirage' not found
-[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.02.1/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-0750c9.txt'' terminated with error code 2
+[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.02.1/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-c55194.txt'' terminated with error code 2
 [31m# [mE: Cannot find findlib package conduit.mirage
 [31m# [mE: Failure("1 configuration error")
 [31m# [mmake[1]: *** [setup.data] Error 1
@@ -489,7 +485,7 @@ These actions have been completed [01msuccessfully[m
 The following [01mfailed[m
  - install   mirage-http.2.0.0
 
-The former state can be restored with opam switch import "/home/opam/.opam/4.02.1/backup/state-20140920010800.export"
+The former state can be restored with opam switch import "/home/opam/.opam/4.02.1/backup/state-20140920032926.export"
 mirage: internal error, uncaught exception:
         Sys_error("log: No such file or directory")
         
