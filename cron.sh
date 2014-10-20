@@ -12,3 +12,4 @@ done
 
 git add logs/
 git commit -m "Sync logs"
+git push
