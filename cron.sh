@@ -1,5 +1,7 @@
 #!/bin/sh -x
 
+sudo docker.io pull avsm/docker-opam
+
 git pull --no-edit
 
 for script in mirage-www mirage-skeleton; do
