@@ -6,4 +6,4 @@ script=$2
 repo=avsm/docker-opam
 docker=docker.io
 
-${docker} run -v `pwd`/scripts:/scripts -t $repo:$tag sh -c "/scripts/$script"
+${docker} run --rm=true -v `pwd`/scripts:/scripts -t $repo:$tag sh -c "/scripts/$script"
