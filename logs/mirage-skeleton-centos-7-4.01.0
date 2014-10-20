@@ -1,0 +1,731 @@
++ tag=centos-7-4.01.0
++ script=mirage-skeleton
++ repo=avsm/docker-opam
++ docker=docker.io
++ pwd
++ docker.io run -v /root/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.01.0 sh -c /scripts/mirage-skeleton
++ set -e
++ opam remote add mirage git://github.com/mirage/mirage-dev
+[[32mmirage[m] Fetching git://github.com/mirage/mirage-dev
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+The following packages have been UPDATED upstream:
+ - camlp4.4.01.0
+ - ocamlfind.1.5.3
+Updating the cache of metadata (~/.opam/state.cache) ...
++ opam update -u
+[[32mmirage[m] Fetching git://github.com/mirage/mirage-dev
+[[32mdefault[m] Fetching /home/opam/opam-repository
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+Updating the cache of metadata (~/.opam/state.cache) ...
+Already up-to-date.
++ opam installext -j 3 mirage ssl
+++ opam install -j 3 mirage ssl -e centos,centos-7
++ depext=openssl-devel
++ echo CentOS 7 depexts: openssl-devel
+CentOS 7 depexts: openssl-devel
++ '[' openssl-devel '!=' '' ']'
++ sudo yum install -y openssl-devel
+Loaded plugins: fastestmirror
+base                                                     | 3.6 kB     00:00     
+extras                                                   | 3.4 kB     00:00     
+home_ocaml                                               | 1.2 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+Loading mirror speeds from cached hostfile
+ * base: mirrors.seas.harvard.edu
+ * extras: mirror.es.its.nyu.edu
+ * updates: centos.mirror.constant.com
+Resolving Dependencies
+--> Running transaction check
+---> Package openssl-devel.x86_64 1:1.0.1e-34.el7_0.6 will be installed
+--> Processing Dependency: openssl-libs(x86-64) = 1:1.0.1e-34.el7_0.6 for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Processing Dependency: zlib-devel(x86-64) for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Processing Dependency: krb5-devel(x86-64) for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Running transaction check
+---> Package krb5-devel.x86_64 0:1.11.3-49.el7 will be installed
+--> Processing Dependency: libverto-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: libselinux-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: libcom_err-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: keyutils-libs-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+---> Package openssl-libs.x86_64 1:1.0.1e-34.el7_0.4 will be updated
+---> Package openssl-libs.x86_64 1:1.0.1e-34.el7_0.6 will be an update
+---> Package zlib-devel.x86_64 0:1.2.7-13.el7 will be installed
+--> Running transaction check
+---> Package keyutils-libs-devel.x86_64 0:1.5.8-3.el7 will be installed
+---> Package libcom_err-devel.x86_64 0:1.42.9-4.el7 will be installed
+---> Package libselinux-devel.x86_64 0:2.2.2-6.el7 will be installed
+--> Processing Dependency: libsepol-devel >= 2.1.9-1 for package: libselinux-devel-2.2.2-6.el7.x86_64
+--> Processing Dependency: pkgconfig(libsepol) for package: libselinux-devel-2.2.2-6.el7.x86_64
+--> Processing Dependency: pkgconfig(libpcre) for package: libselinux-devel-2.2.2-6.el7.x86_64
+---> Package libverto-devel.x86_64 0:0.2.5-4.el7 will be installed
+--> Running transaction check
+---> Package libsepol-devel.x86_64 0:2.1.9-3.el7 will be installed
+---> Package pcre-devel.x86_64 0:8.32-12.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch       Version                   Repository   Size
+================================================================================
+Installing:
+ openssl-devel           x86_64     1:1.0.1e-34.el7_0.6       updates     1.2 M
+Installing for dependencies:
+ keyutils-libs-devel     x86_64     1.5.8-3.el7               base         37 k
+ krb5-devel              x86_64     1.11.3-49.el7             base        611 k
+ libcom_err-devel        x86_64     1.42.9-4.el7              base         30 k
+ libselinux-devel        x86_64     2.2.2-6.el7               base        174 k
+ libsepol-devel          x86_64     2.1.9-3.el7               base         71 k
+ libverto-devel          x86_64     0.2.5-4.el7               base         12 k
+ pcre-devel              x86_64     8.32-12.el7               base        477 k
+ zlib-devel              x86_64     1.2.7-13.el7              base         49 k
+Updating for dependencies:
+ openssl-libs            x86_64     1:1.0.1e-34.el7_0.6       updates     941 k
+
+Transaction Summary
+================================================================================
+Install  1 Package  (+8 Dependent packages)
+Upgrade             ( 1 Dependent package)
+
+Total download size: 3.5 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(2/10): krb5-devel-1.11.3- 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:00     
+(2/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
+(3/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:00     
+(4/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
+(5/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
+(7/10): openssl-devel-1.0. 23% [===-            ]  0.0 B/s | 864 kB   --:-- ETA (6/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
+(7/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
+(8/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
+(10/10): openssl-libs-1.0. 40% [======          ] 865 kB/s | 1.4 MB   00:02 ETA (9/10): openssl-devel-1.0. 63% [==========      ] 979 kB/s | 2.2 MB   00:01 ETA (9/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm         | 1.2 MB   00:00     
+(10/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm         | 941 kB   00:00     
+--------------------------------------------------------------------------------
+Total                                              1.5 MB/s | 3.5 MB  00:02     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : keyutils-libs-devel-1.5.8-3 [                            ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#####                       ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [######                      ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#######                     ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########                    ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##########                  ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###########                 ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [############                ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##############              ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###############             ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [################            ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#################           ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##################          ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###################         ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#####################       ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [######################      ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#######################     ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########################    ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#########################   ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##########################  ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########################### ]  1/11  Installing : keyutils-libs-devel-1.5.8-3.el7.x86_64                      1/11 
+  Updating   : 1:openssl-libs-1.0.1e-34.el [                            ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#                           ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##                          ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###                         ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [####                        ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#####                       ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [######                      ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#######                     ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########                    ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#########                   ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##########                  ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###########                 ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [############                ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#############               ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##############              ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###############             ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [################            ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#################           ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##################          ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###################         ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [####################        ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#####################       ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [######################      ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#######################     ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########################    ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#########################   ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##########################  ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########################### ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el7_0.6.x86_64                     2/11 
+  Installing : pcre-devel-8.32-12.el7.x86_ [                            ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#                           ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##                          ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [###                         ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [######                      ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#######                     ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########                    ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#########                   ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [###########                 ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [############                ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#############               ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##############              ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [######################      ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#######################     ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########################    ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#########################   ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##########################  ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########################### ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_64                               3/11 
+  Installing : zlib-devel-1.2.7-13.el7.x86 [                            ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [###                         ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [################            ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [####################        ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [#####################       ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [######################      ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [########################    ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [########################### ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86_64                              4/11 
+  Installing : libsepol-devel-2.1.9-3.el7. [                            ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#                           ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##                          ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###                         ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [####                        ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#####                       ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [######                      ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#######                     ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########                    ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#########                   ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##########                  ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###########                 ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [############                ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#############               ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##############              ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###############             ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [################            ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#####################       ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#######################     ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########################    ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#########################   ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##########################  ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########################### ]  5/11  Installing : libsepol-devel-2.1.9-3.el7.x86_64                           5/11 
+  Installing : libselinux-devel-2.2.2-6.el [                            ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########                    ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##########                  ]  6/11  Installing : libselinux-devel-2.2.2-6.el [###########                 ]  6/11  Installing : libselinux-devel-2.2.2-6.el [############                ]  6/11  Installing : libselinux-devel-2.2.2-6.el [################            ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#################           ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##################          ]  6/11  Installing : libselinux-devel-2.2.2-6.el [###################         ]  6/11  Installing : libselinux-devel-2.2.2-6.el [####################        ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#####################       ]  6/11  Installing : libselinux-devel-2.2.2-6.el [######################      ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#######################     ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########################    ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#########################   ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##########################  ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########################### ]  6/11  Installing : libselinux-devel-2.2.2-6.el7.x86_64                         6/11 
+  Installing : libverto-devel-0.2.5-4.el7. [                            ]  7/11  Installing : libverto-devel-0.2.5-4.el7. [#######                     ]  7/11  Installing : libverto-devel-0.2.5-4.el7. [########################### ]  7/11  Installing : libverto-devel-0.2.5-4.el7.x86_64                           7/11 
+  Installing : libcom_err-devel-1.42.9-4.e [                            ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [##                          ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [###                         ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [#############               ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [####################        ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [######################      ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [########################    ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [########################### ]  8/11  Installing : libcom_err-devel-1.42.9-4.el7.x86_64                        8/11 
+  Installing : krb5-devel-1.11.3-49.el7.x8 [                            ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#                           ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##                          ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###                         ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [####                        ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#####                       ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [######                      ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#######                     ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########                    ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##########                  ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###########                 ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [############                ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#############               ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###############             ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [################            ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##################          ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###################         ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########################    ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#########################   ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########################### ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x86_64                             9/11 
+  Installing : 1:openssl-devel-1.0.1e-34.e [                            ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#                           ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##                          ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###                         ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [####                        ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#####                       ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [######                      ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#######                     ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########                    ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#########                   ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##########                  ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###########                 ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [############                ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#############               ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##############              ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###############             ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [################            ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#################           ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##################          ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###################         ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [####################        ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#####################       ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [######################      ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#######################     ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########################    ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#########################   ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##########################  ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########################### ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64                   10/11 
+  Cleanup    : 1:openssl-libs-1.0.1e-34.el7_0.4.x86_64                    11/11 
+  Verifying  : libcom_err-devel-1.42.9-4.el7.x86_64                        1/11 
+  Verifying  : libselinux-devel-2.2.2-6.el7.x86_64                         2/11 
+  Verifying  : libverto-devel-0.2.5-4.el7.x86_64                           3/11 
+  Verifying  : 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64                    4/11 
+  Verifying  : libsepol-devel-2.1.9-3.el7.x86_64                           5/11 
+  Verifying  : krb5-devel-1.11.3-49.el7.x86_64                             6/11 
+  Verifying  : zlib-devel-1.2.7-13.el7.x86_64                              7/11 
+  Verifying  : pcre-devel-8.32-12.el7.x86_64                               8/11 
+  Verifying  : 1:openssl-libs-1.0.1e-34.el7_0.6.x86_64                     9/11 
+  Verifying  : keyutils-libs-devel-1.5.8-3.el7.x86_64                     10/11 
+  Verifying  : 1:openssl-libs-1.0.1e-34.el7_0.4.x86_64                    11/11 
+
+Installed:
+  openssl-devel.x86_64 1:1.0.1e-34.el7_0.6                                      
+
+Dependency Installed:
+  keyutils-libs-devel.x86_64 0:1.5.8-3.el7                                      
+  krb5-devel.x86_64 0:1.11.3-49.el7                                             
+  libcom_err-devel.x86_64 0:1.42.9-4.el7                                        
+  libselinux-devel.x86_64 0:2.2.2-6.el7                                         
+  libsepol-devel.x86_64 0:2.1.9-3.el7                                           
+  libverto-devel.x86_64 0:0.2.5-4.el7                                           
+  pcre-devel.x86_64 0:8.32-12.el7                                               
+  zlib-devel.x86_64 0:1.2.7-13.el7                                              
+
+Dependency Updated:
+  openssl-libs.x86_64 1:1.0.1e-34.el7_0.6                                       
+
+Complete!
++ opam install -j 3 mirage ssl
+The following actions will be performed:
+ - install   ounit.2.0.0                           [required by io-page, cstruct]
+ - install   ssl.0.4.7
+ - install   re.1.2.2                              [required by mirage]
+ - install   type_conv.111.13.00                   [required by sexplib]
+ - install   cmdliner.0.9.5                        [required by mirage]
+ - install   optcomp.1.6                           [required by ocplib-endian]
+ - install   lwt.2.4.5                             [required by mirage]
+ - install   sexplib.111.25.00                     [required by mirage]
+ - install   ocplib-endian.0.4                     [required by cstruct]
+ - install   ipaddr.2.5.0                          [required by mirage]
+ - install   cstruct.1.4.0                         [required by mirage]
+ - install   io-page.1.1.1                         [required by mirage]
+ - install   mirage-types.2.0.0                    [required by mirage]
+ - install   mirage.2.0.0
+=== [33m14[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mcmdliner.0.9.5[m] Downloading http://erratique.ch/software/cmdliner/releases/cmdliner-0.9.5.tbz
+[[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
+[[32mio-page.1.1.1[m] Downloading https://github.com/mirage/io-page/archive/v1.1.1.tar.gz
+[[32mipaddr.2.5.0[m] Downloading https://github.com/mirage/ocaml-ipaddr/archive/2.5.0.tar.gz
+[[32mlwt.2.4.5[m] Downloading https://github.com/ocsigen/lwt/archive/2.4.5.tar.gz
+[[32mmirage.2.0.0[m] Fetching git://github.com/mirage/mirage
+[[32mmirage-types.2.0.0[m] Fetching git://github.com/mirage/mirage
+[[32mocplib-endian.0.4[m] Downloading https://github.com/OCamlPro/ocplib-endian/archive/0.4.tar.gz
+[[32moptcomp.1.6[m] Downloading https://github.com/diml/optcomp/archive/1.6.tar.gz
+[[32mounit.2.0.0[m] Downloading http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz
+[[32mre.1.2.2[m] Downloading https://github.com/ocaml/ocaml-re/archive/ocaml-re-1.2.2.tar.gz
+[[32msexplib.111.25.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.25.00/individual/sexplib-111.25.00.tar.gz
+[[32mssl.0.4.7[m] Downloading http://downloads.sourceforge.net/project/savonet/ocaml-ssl/0.4.7/ocaml-ssl-0.4.7.tar.gz
+[[32mtype_conv.111.13.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.13.00/individual/type_conv-111.13.00.tar.gz
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building ounit.2.0.0:
+  make build
+  make install
+Building optcomp.1.6:
+  ./configure --prefix /home/opam/.opam/4.01.0
+  make
+  make install
+Building cmdliner.0.9.5:
+  ocaml pkg/git.ml
+  ocaml pkg/build.ml native=true native-dynlink=true
+Installing cmdliner.0.9.5.
+Building re.1.2.2:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing optcomp.1.6.
+Installing ounit.2.0.0.
+Copying ~/.opam/repo/default/packages/ssl/ssl.0.4.7/files/pkgconfigure to ~/.opam/4.01.0/build/ssl.0.4.7/
+Building ssl.0.4.7:
+  ./configure --prefix /home/opam/.opam/4.01.0
+  make
+  make install
+Building type_conv.111.13.00:
+  make
+  make install
+Installing re.1.2.2.
+Building ocplib-endian.0.4:
+  ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing type_conv.111.13.00.
+Building sexplib.111.25.00:
+  ./configure --enable-syntax
+  make
+  make install
+Installing ocplib-endian.0.4.
+Installing ssl.0.4.7.
+Building lwt.2.4.5:
+  ./configure --disable-libev --disable-react --enable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib
+  make build
+  make install
+Installing sexplib.111.25.00.
+Building ipaddr.2.5.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  make build
+  make install
+Installing ipaddr.2.5.0.
+Installing lwt.2.4.5.
+Building cstruct.1.4.0:
+  make
+  make install
+Installing cstruct.1.4.0.
+Building io-page.1.1.1:
+  make
+  make install
+Installing io-page.1.1.1.
+Building mirage-types.2.0.0:
+  make install-types
+Installing mirage-types.2.0.0.
+Building mirage.2.0.0:
+  ./configure --bindir /home/opam/.opam/4.01.0/bin
+  make
+  make install
+Installing mirage.2.0.0.
+++ opam config env
++ eval 'CAML_LD_LIBRARY_PATH="/home/opam/.opam/4.01.0/lib/stublibs";' export 'CAML_LD_LIBRARY_PATH;' 'MANPATH="/home/opam/.opam/4.01.0/man:";' export 'MANPATH;' 'PERL5LIB="/home/opam/.opam/4.01.0/lib/perl5";' export 'PERL5LIB;' 'OCAML_TOPLEVEL_PATH="/home/opam/.opam/4.01.0/lib/toplevel";' export 'OCAML_TOPLEVEL_PATH;' 'PATH="/home/opam/.opam/4.01.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";' export 'PATH;'
+++ CAML_LD_LIBRARY_PATH=/home/opam/.opam/4.01.0/lib/stublibs
+++ export CAML_LD_LIBRARY_PATH
+++ MANPATH=/home/opam/.opam/4.01.0/man:
+++ export MANPATH
+++ PERL5LIB=/home/opam/.opam/4.01.0/lib/perl5
+++ export PERL5LIB
+++ OCAML_TOPLEVEL_PATH=/home/opam/.opam/4.01.0/lib/toplevel
+++ export OCAML_TOPLEVEL_PATH
+++ PATH=/home/opam/.opam/4.01.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export PATH
++ git clone git://github.com/mirage/mirage-skeleton
+Cloning into 'mirage-skeleton'...
+remote: Counting objects: 1201, done.[K
+Receiving objects:   0% (1/1201)   Receiving objects:   1% (13/1201)   Receiving objects:   2% (25/1201)   Receiving objects:   3% (37/1201)   Receiving objects:   4% (49/1201)   Receiving objects:   5% (61/1201)   Receiving objects:   6% (73/1201)   Receiving objects:   7% (85/1201)   Receiving objects:   8% (97/1201)   Receiving objects:   9% (109/1201)   Receiving objects:  10% (121/1201)   Receiving objects:  11% (133/1201)   Receiving objects:  12% (145/1201)   Receiving objects:  13% (157/1201)   Receiving objects:  14% (169/1201)   Receiving objects:  15% (181/1201)   Receiving objects:  16% (193/1201)   Receiving objects:  17% (205/1201)   Receiving objects:  18% (217/1201)   Receiving objects:  19% (229/1201)   Receiving objects:  20% (241/1201)   Receiving objects:  21% (253/1201)   Receiving objects:  22% (265/1201)   Receiving objects:  23% (277/1201)   Receiving objects:  24% (289/1201)   Receiving objects:  25% (301/1201)   Receiving objects:  26% (313/1201)   Receiving objects:  27% (325/1201)   Receiving objects:  28% (337/1201)   Receiving objects:  29% (349/1201)   Receiving objects:  30% (361/1201)   Receiving objects:  31% (373/1201)   Receiving objects:  32% (385/1201)   Receiving objects:  33% (397/1201)   Receiving objects:  34% (409/1201)   Receiving objects:  35% (421/1201)   Receiving objects:  36% (433/1201)   Receiving objects:  37% (445/1201)   Receiving objects:  38% (457/1201)   Receiving objects:  39% (469/1201)   Receiving objects:  40% (481/1201)   Receiving objects:  41% (493/1201)   Receiving objects:  42% (505/1201)   Receiving objects:  43% (517/1201)   Receiving objects:  44% (529/1201)   Receiving objects:  45% (541/1201)   Receiving objects:  46% (553/1201)   Receiving objects:  47% (565/1201)   Receiving objects:  48% (577/1201)   Receiving objects:  49% (589/1201)   Receiving objects:  50% (601/1201)   Receiving objects:  51% (613/1201)   Receiving objects:  52% (625/1201)   Receiving objects:  53% (637/1201)   Receiving objects:  54% (649/1201)   Receiving objects:  55% (661/1201)   Receiving objects:  56% (673/1201)   Receiving objects:  57% (685/1201)   Receiving objects:  58% (697/1201)   Receiving objects:  59% (709/1201)   Receiving objects:  60% (721/1201)   Receiving objects:  61% (733/1201)   Receiving objects:  62% (745/1201)   Receiving objects:  63% (757/1201)   Receiving objects:  64% (769/1201)   Receiving objects:  65% (781/1201)   Receiving objects:  66% (793/1201)   Receiving objects:  67% (805/1201)   Receiving objects:  68% (817/1201)   Receiving objects:  69% (829/1201)   Receiving objects:  70% (841/1201)   Receiving objects:  71% (853/1201)   Receiving objects:  72% (865/1201)   Receiving objects:  73% (877/1201)   Receiving objects:  74% (889/1201)   Receiving objects:  75% (901/1201)   Receiving objects:  76% (913/1201)   Receiving objects:  77% (925/1201)   Receiving objects:  78% (937/1201)   Receiving objects:  79% (949/1201)   Receiving objects:  80% (961/1201)   Receiving objects:  81% (973/1201)   Receiving objects:  82% (985/1201)   Receiving objects:  83% (997/1201)   remote: Total 1201 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  84% (1009/1201)   Receiving objects:  85% (1021/1201)   Receiving objects:  86% (1033/1201)   Receiving objects:  87% (1045/1201)   Receiving objects:  88% (1057/1201)   Receiving objects:  89% (1069/1201)   Receiving objects:  90% (1081/1201)   Receiving objects:  91% (1093/1201)   Receiving objects:  92% (1105/1201)   Receiving objects:  93% (1117/1201)   Receiving objects:  94% (1129/1201)   Receiving objects:  95% (1141/1201)   Receiving objects:  96% (1153/1201)   Receiving objects:  97% (1165/1201)   Receiving objects:  98% (1177/1201)   Receiving objects:  99% (1189/1201)   Receiving objects: 100% (1201/1201)   Receiving objects: 100% (1201/1201), 216.87 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/561)   Resolving deltas:   1% (6/561)   Resolving deltas:   3% (17/561)   Resolving deltas:   4% (28/561)   Resolving deltas:   5% (33/561)   Resolving deltas:   6% (38/561)   Resolving deltas:   7% (43/561)   Resolving deltas:   8% (50/561)   Resolving deltas:   9% (56/561)   Resolving deltas:  10% (61/561)   Resolving deltas:  11% (62/561)   Resolving deltas:  12% (69/561)   Resolving deltas:  13% (73/561)   Resolving deltas:  14% (79/561)   Resolving deltas:  15% (87/561)   Resolving deltas:  16% (91/561)   Resolving deltas:  17% (99/561)   Resolving deltas:  18% (102/561)   Resolving deltas:  19% (108/561)   Resolving deltas:  20% (113/561)   Resolving deltas:  21% (118/561)   Resolving deltas:  22% (127/561)   Resolving deltas:  23% (133/561)   Resolving deltas:  25% (141/561)   Resolving deltas:  26% (147/561)   Resolving deltas:  27% (152/561)   Resolving deltas:  28% (159/561)   Resolving deltas:  29% (165/561)   Resolving deltas:  30% (169/561)   Resolving deltas:  31% (174/561)   Resolving deltas:  34% (192/561)   Resolving deltas:  51% (287/561)   Resolving deltas:  52% (294/561)   Resolving deltas:  53% (300/561)   Resolving deltas:  54% (303/561)   Resolving deltas:  57% (322/561)   Resolving deltas:  59% (335/561)   Resolving deltas:  60% (337/561)   Resolving deltas:  61% (345/561)   Resolving deltas:  63% (354/561)   Resolving deltas:  64% (363/561)   Resolving deltas:  70% (393/561)   Resolving deltas:  72% (407/561)   Resolving deltas:  73% (413/561)   Resolving deltas:  74% (417/561)   Resolving deltas:  75% (422/561)   Resolving deltas:  78% (442/561)   Resolving deltas:  79% (445/561)   Resolving deltas:  80% (449/561)   Resolving deltas:  82% (462/561)   Resolving deltas:  83% (466/561)   Resolving deltas:  84% (474/561)   Resolving deltas:  85% (480/561)   Resolving deltas:  86% (487/561)   Resolving deltas:  87% (490/561)   Resolving deltas:  89% (500/561)   Resolving deltas:  90% (505/561)   Resolving deltas:  94% (531/561)   Resolving deltas:  95% (535/561)   Resolving deltas:  96% (539/561)   Resolving deltas:  97% (547/561)   Resolving deltas:  98% (551/561)   Resolving deltas:  99% (558/561)   Resolving deltas: 100% (561/561)   Resolving deltas: 100% (561/561), done.
++ cd mirage-skeleton
++ export MODE=unix
++ MODE=unix
++ make configure
+mirage configure console/config.ml --unix 
+[32mMirage[m      [36mUsing specified config file:[m console/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/console/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/console/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/console && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mconsole[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/console/config.ml
+[32mconsole[m     1 job [Unikernel.Main]
+[32mconsole[m     Installing OPAM packages.
+[32mconsole[m     [33m=>[m opam install --yes mirage-console mirage-unix
+The following actions will be performed:
+ - install   shared-memory-ring.1.1.0              [required by mirage-unix]
+ - install   mirage-clock-unix.1.0.0               [required by mirage-unix]
+ - install   mirage-unix.1.1.0
+ - install   mirage-console.2.0.0
+=== [33m4[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mmirage-clock-unix.1.0.0[m] Downloading https://github.com/mirage/mirage-clock/archive/v1.0.0.tar.gz
+[[32mmirage-console.2.0.0[m] Fetching git://github.com/mirage/mirage-console
+[[32mmirage-unix.1.1.0[m] Downloading https://github.com/mirage/mirage-platform/archive/v1.1.0.tar.gz
+[[32mshared-memory-ring.1.1.0[m] Downloading https://github.com/mirage/shared-memory-ring/archive/1.1.0.tar.gz
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building mirage-clock-unix.1.0.0:
+  make unix-build
+  make unix-install
+Installing mirage-clock-unix.1.0.0.
+Building shared-memory-ring.1.1.0:
+  make all
+  make install
+Installing shared-memory-ring.1.1.0.
+Building mirage-unix.1.1.0:
+  make unix-build
+  make unix-install PREFIX=/home/opam/.opam/4.01.0
+Installing mirage-unix.1.1.0.
+Building mirage-console.2.0.0:
+  make
+  make install
+Installing mirage-console.2.0.0.
+[32mconsole[m     [36mGenerating:[m main.ml
+cd console && make depend
+make[1]: Entering directory `/home/opam/opam-repository/mirage-skeleton/console'
+opam install mirage-console mirage-unix --verbose
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-unix is already installed (current version is 1.1.0).
+make[1]: Leaving directory `/home/opam/opam-repository/mirage-skeleton/console'
+mirage configure network/config.ml --unix 
+[32mMirage[m      [36mUsing specified config file:[m network/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/network/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/network/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/network && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mnetwork[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/network/config.ml
+[32mnetwork[m     1 job [Unikernel.Main]
+[32mnetwork[m     Installing OPAM packages.
+[32mnetwork[m     [33m=>[m opam install --yes mirage-clock-unix mirage-console mirage-net-unix mirage-unix tcpip
+[1;34m[NOTE][m Package mirage-clock-unix is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-unix is already installed (current version is 1.1.0).
+The following actions will be performed:
+ - install   tuntap.1.0.0                          [required by mirage-net-unix]
+ - install   mirage-net-unix.1.1.1
+ - install   tcpip.2.0.0
+=== [33m3[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mmirage-net-unix.1.1.1[m] Downloading https://github.com/mirage/mirage-net-unix/archive/v1.1.1.tar.gz
+[[32mtcpip.2.0.0[m] Fetching git://github.com/mirage/mirage-tcpip
+[[32mtuntap.1.0.0[m] Downloading https://github.com/mirage/ocaml-tuntap/archive/v1.0.0.tar.gz
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building tuntap.1.0.0:
+  make PREFIX=/home/opam/.opam/4.01.0
+  make PREFIX=/home/opam/.opam/4.01.0 install
+Installing tuntap.1.0.0.
+Building mirage-net-unix.1.1.1:
+  make
+  make install
+Installing mirage-net-unix.1.1.1.
+Building tcpip.2.0.0:
+  make
+  make install
+Installing tcpip.2.0.0.
+[32mnetwork[m     [36mGenerating:[m main.ml
+cd network && make depend
+make[1]: Entering directory `/home/opam/opam-repository/mirage-skeleton/network'
+opam install mirage-clock-unix mirage-console mirage-net-unix mirage-unix tcpip --verbose
+[1;34m[NOTE][m Package mirage-clock-unix is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-net-unix is already installed (current version is 1.1.1).
+[1;34m[NOTE][m Package mirage-unix is already installed (current version is 1.1.0).
+[1;34m[NOTE][m Package tcpip is already installed (current version is 2.0.0).
+make[1]: Leaving directory `/home/opam/opam-repository/mirage-skeleton/network'
+mirage configure stackv4/config.ml --unix 
+[32mMirage[m      [36mUsing specified config file:[m stackv4/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/stackv4/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/stackv4/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/stackv4 && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mstackv4[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/stackv4/config.ml
+[32mstackv4[m     1 job [Unikernel.Main]
+[32mstackv4[m     Installing OPAM packages.
+[32mstackv4[m     [33m=>[m opam install --yes mirage-clock-unix mirage-console mirage-http mirage-net-unix mirage-unix tcpip
+[1;34m[NOTE][m Package mirage-clock-unix is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-net-unix is already installed (current version is 1.1.1).
+[1;34m[NOTE][m Package mirage-unix is already installed (current version is 1.1.0).
+[1;34m[NOTE][m Package tcpip is already installed (current version is 2.0.0).
+The following actions will be performed:
+ - install   fieldslib.109.20.03                   [required by cohttp]
+ - install   xenstore.1.2.5                        [required by vchan]
+ - install   dns.0.9.1                             [required by conduit-mirage]
+ - install   stringext.1.0.0                       [required by cohttp]
+ - install   vchan.2.0.0                           [required by conduit-mirage]
+ - install   uri.1.7.2                             [required by cohttp]
+ - install   conduit-mirage.2.0.0                  [required by mirage-http]
+ - install   conduit.0.6.0                         [required by cohttp]
+ - install   cohttp.0.12.0                         [required by mirage-http]
+ - install   mirage-http.2.0.0
+=== [33m10[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mcohttp.0.12.0[m] Fetching git://github.com/mirage/ocaml-cohttp
+[[32mconduit.0.6.0[m] Fetching git://github.com/mirage/ocaml-conduit
+[[32mdns.0.9.1[m] Downloading https://github.com/mirage/ocaml-dns/archive/v0.9.1.tar.gz
+[[32mfieldslib.109.20.03[m] Downloading https://ocaml.janestreet.com/ocaml-core/109.20.00/individual/fieldslib-109.20.03.tar.gz
+[[32mmirage-http.2.0.0[m] Fetching git://github.com/mirage/mirage-http
+[[32mstringext.1.0.0[m] Downloading https://github.com/rgrinberg/stringext/archive/v1.0.0.tar.gz
+[[32muri.1.7.2[m] Downloading https://github.com/mirage/ocaml-uri/archive/v1.7.2.tar.gz
+[[32mvchan.2.0.0[m] Fetching git://github.com/mirage/ocaml-vchan
+[[32mxenstore.1.2.5[m] Downloading https://github.com/mirage/ocaml-xenstore/archive/1.2.5.tar.gz
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building dns.0.9.1:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0 --enable-lwt
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing dns.0.9.1.
+Building fieldslib.109.20.03:
+  make
+  make install
+Installing fieldslib.109.20.03.
+Building stringext.1.0.0:
+  ocaml setup.ml -configure
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing stringext.1.0.0.
+Building xenstore.1.2.5:
+  make all
+  make install
+Installing xenstore.1.2.5.
+Building uri.1.7.2:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing uri.1.7.2.
+Building vchan.2.0.0:
+  ./configure
+  make
+  make install
+Installing vchan.2.0.0.
+Building conduit.0.6.0:
+  make
+  make install
+Installing conduit.0.6.0.
+Installing conduit-mirage.2.0.0.
+Building cohttp.0.12.0:
+  make PREFIX=/home/opam/.opam/4.01.0
+  make PREFIX=/home/opam/.opam/4.01.0 install
+Installing cohttp.0.12.0.
+Building mirage-http.2.0.0:
+  make
+  make install
+[31m[ERROR][m The compilation of mirage-http.2.0.0 failed.
+Removing mirage-http.2.0.0.
+  make uninstall
+
+
+[31m#==================[m [01mERROR[m [01mwhile installing mirage-http.2.0.0[m [31m==================#[m
+[31m#[m [31mopam-version[m 1.2.0~beta4
+[31m#[m [31mos[m           linux
+[31m#[m [31mcommand[m      make
+[31m#[m [31mpath[m         /home/opam/.opam/4.01.0/build/mirage-http.2.0.0
+[31m#[m [31mcompiler[m     4.01.0
+[31m#[m [31mexit-code[m    2
+[31m#[m [31menv-file[m     /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-10155-6cc03f.env
+[31m#[m [31mstdout-file[m  /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-10155-6cc03f.out
+[31m#[m [31mstderr-file[m  /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-10155-6cc03f.err
+[31m### stdout ###
+[m[31m# [mmake[1]: Entering directory `/home/opam/.opam/4.01.0/build/mirage-http.2.0.0'
+[31m# [mmake[1]: Leaving directory `/home/opam/.opam/4.01.0/build/mirage-http.2.0.0'
+[31m### stderr ###
+[m[31m# [mocamlfind: Package `conduit.mirage' not found
+[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.01.0/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-d2ab6b.txt'' terminated with error code 2
+[31m# [mE: Cannot find findlib package conduit.mirage
+[31m# [mE: Failure("1 configuration error")
+[31m# [mmake[1]: *** [setup.data] Error 1
+
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mError report[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+These actions have been completed [01msuccessfully[m
+ - install   cohttp.0.12.0
+ - install   stringext.1.0.0
+ - install   dns.0.9.1
+ - install   conduit-mirage.2.0.0
+ - install   conduit.0.6.0
+ - install   xenstore.1.2.5
+ - install   uri.1.7.2
+ - install   fieldslib.109.20.03
+ - install   vchan.2.0.0
+The following [01mfailed[m
+ - install   mirage-http.2.0.0
+
+The former state can be restored with opam switch import "/home/opam/.opam/4.01.0/backup/state-20140920005127.export"
+mirage: internal error, uncaught exception:
+        Sys_error("log: No such file or directory")
+        
+make: *** [stackv4-configure] Error 1
++ export MODE=xen
++ MODE=xen
++ make configure
+mirage configure console/config.ml --xen 
+[32mMirage[m      [36mUsing specified config file:[m console/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/console/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/console/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/console && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mconsole[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/console/config.ml
+[32mconsole[m     1 job [Unikernel.Main]
+[32mconsole[m     Installing OPAM packages.
+[32mconsole[m     [33m=>[m opam install --yes mirage-console mirage-xen xen-evtchn xen-gnt xenstore
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xenstore is already installed (current version is 1.2.5).
+The following actions will be performed:
+ - install   mirage-xen-minios.0.4                 [required by mirage-xen]
+ - install   mirage-clock-xen.1.0.0                [required by mirage-xen]
+ - install   xen-evtchn.1.0.5
+ - install   ocamlify.0.0.1                        [required by oasis]
+ - install   ocaml-data-notation.0.0.11            [required by oasis]
+ - install   ocamlmod.0.0.7                        [required by oasis]
+ - install   oasis.0.4.4                           [required by xen-gnt]
+ - install   xen-gnt.2.0.0
+ - install   mirage-xen.2.0.0
+ - recompile vchan.2.0.0                           [uses xen-gnt, mirage-xen, xen-evtchn]
+ - recompile mirage-console.2.0.0
+ - recompile tcpip.2.0.0                           [uses mirage-console]
+ - recompile conduit-mirage.2.0.0                  [uses vchan, tcpip]
+ - recompile conduit.0.6.0                         [uses vchan, tcpip]
+ - recompile cohttp.0.12.0                         [uses conduit]
+=== [33m9[m to install | [33m6[m to reinstall ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mcohttp.0.12.0[m] Fetching git://github.com/mirage/ocaml-cohttp
+[[32mconduit.0.6.0[m] Fetching git://github.com/mirage/ocaml-conduit
+[[32mmirage-clock-xen.1.0.0[m] Downloading https://github.com/mirage/mirage-clock/archive/v1.0.0.tar.gz
+[[32mmirage-console.2.0.0[m] Fetching git://github.com/mirage/mirage-console
+[[32mmirage-xen.2.0.0[m] Fetching git://github.com/mirage/mirage-platform
+[[32mmirage-xen-minios.0.4[m] Downloading https://github.com/mirage/mirage-xen-minios/releases/download/v0.4/mirage-xen-minios-v0.4.tar.bz2
+[[32moasis.0.4.4[m] Downloading https://forge.ocamlcore.org/frs/download.php/1391/oasis-0.4.4.tar.gz
+[[32mocaml-data-notation.0.0.11[m] Downloading https://forge.ocamlcore.org/frs/download.php/1310/ocaml-data-notation-0.0.11.tar.gz
+[[32mocamlify.0.0.1[m] Downloading http://forge.ocamlcore.org/frs/download.php/379/ocamlify-0.0.1.tar.gz
+[[32mocamlmod.0.0.7[m] Downloading https://forge.ocamlcore.org/frs/download.php/1350/ocamlmod-0.0.7.tar.gz
+[[32mtcpip.2.0.0[m] Fetching git://github.com/mirage/mirage-tcpip
+[[32mvchan.2.0.0[m] Fetching git://github.com/mirage/ocaml-vchan
+[[32mxen-evtchn.1.0.5[m] Downloading https://github.com/mirage/ocaml-evtchn/archive/v1.0.5.tar.gz
+[[32mxen-gnt.2.0.0[m] Fetching git://github.com/mirage/ocaml-gnt
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-[m [01mRemoving Packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Removing cohttp.0.12.0.
+  ocamlfind remove cohttp
+Removing conduit-mirage.2.0.0.
+Removing conduit.0.6.0.
+  ocamlfind remove conduit
+Removing vchan.2.0.0.
+  ocamlfind remove vchan
+Removing tcpip.2.0.0.
+  ocamlfind remove tcpip
+Removing mirage-console.2.0.0.
+  ocamlfind remove mirage-console
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building mirage-clock-xen.1.0.0:
+  make xen-build
+  make xen-install
+Installing mirage-clock-xen.1.0.0.
+Building mirage-xen-minios.0.4:
+  make build
+Installing mirage-xen-minios.0.4.
+Building ocaml-data-notation.0.0.11:
+  make
+  make install
+Installing ocaml-data-notation.0.0.11.
+Copying ~/.opam/repo/default/packages/ocamlify/ocamlify.0.0.1/files/ocamlify.install to ~/.opam/4.01.0/build/ocamlify.0.0.1/
+Building ocamlify.0.0.1:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing ocamlify.0.0.1.
+Copying ~/.opam/repo/default/packages/ocamlmod/ocamlmod.0.0.7/files/ocamlmod.install to ~/.opam/4.01.0/build/ocamlmod.0.0.7/
+Building ocamlmod.0.0.7:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing ocamlmod.0.0.7.
+Building xen-evtchn.1.0.5:
+  make
+  make install
+Installing xen-evtchn.1.0.5.
+Copying ~/.opam/repo/default/packages/oasis/oasis.0.4.4/files/oasis.install to ~/.opam/4.01.0/build/oasis.0.4.4/
+Building oasis.0.4.4:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing oasis.0.4.4.
+Building xen-gnt.2.0.0:
+  make
+  make PREFIX=/home/opam/.opam/4.01.0 install
+Installing xen-gnt.2.0.0.
+Building mirage-xen.2.0.0:
+  make xen-build
+  make xen-install PREFIX=/home/opam/.opam/4.01.0
+Installing mirage-xen.2.0.0.
+Building mirage-console.2.0.0:
+  make
+  make install
+Installing mirage-console.2.0.0.
+Building vchan.2.0.0:
+  ./configure
+  make
+  make install
+Installing vchan.2.0.0.
+Building tcpip.2.0.0:
+  make
+  make install
+Installing tcpip.2.0.0.
+Building conduit.0.6.0:
+  make
+  make install
+Installing conduit.0.6.0.
+Installing conduit-mirage.2.0.0.
+Building cohttp.0.12.0:
+  make PREFIX=/home/opam/.opam/4.01.0
+  make PREFIX=/home/opam/.opam/4.01.0 install
+Installing cohttp.0.12.0.
+[32mconsole[m     [33m=>[m ocamlfind query -r -separator ' ' -format %d/%a -predicates native lwt.syntax mirage-console.xen mirage-types.lwt
+[32mconsole[m     [33m=>[m ocamlobjinfo /home/opam/.opam/4.01.0/lib/lwt/lwt.cmxa /home/opam/.opam/4.01.0/lib/ocaml/unix.cmxa /home/opam/.opam/4.01.0/lib/ocaml/bigarray.cmxa /home/opam/.opam/4.01.0/lib/ocplib-endian/ocplib_endian.cmxa /home/opam/.opam/4.01.0/lib/ocplib-endian/bigstring.cmxa /home/opam/.opam/4.01.0/lib/sexplib/sexplib.cmxa /home/opam/.opam/4.01.0/lib/cstruct/cstruct.cmxa /home/opam/.opam/4.01.0/lib/io-page/io_page.cmxa /home/opam/.opam/4.01.0/lib/xenstore/xenstore.cmxa /home/opam/.opam/4.01.0/lib/xenstore/xenstore_client_lwt.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/shared_memory_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/console_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/xenstore_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/lwt_shared_memory_ring.cmxa /home/opam/.opam/4.01.0/lib/mirage-clock-xen/mirage-clock.cmxa /home/opam/.opam/4.01.0/lib/xen-gnt/xen_gnt.cmxa /home/opam/.opam/4.01.0/lib/xen-evtchn/xen_evtchn.cmxa /home/opam/.opam/4.01.0/lib/mirage-xen/oS.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage-console.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage_console_proto.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage_console_xen.cmxa
+
+[32mconsole[m     [36mGenerating:[m main.ml
+cd console && make depend
+make[1]: Entering directory `/home/opam/opam-repository/mirage-skeleton/console'
+opam install mirage-console mirage-xen xen-evtchn xen-gnt xenstore --verbose
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-xen is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xen-evtchn is already installed (current version is 1.0.5).
+[1;34m[NOTE][m Package xen-gnt is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xenstore is already installed (current version is 1.2.5).
+make[1]: Leaving directory `/home/opam/opam-repository/mirage-skeleton/console'
+mirage configure network/config.ml --xen 
+[32mMirage[m      [36mUsing specified config file:[m network/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/network/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/network/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/network && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mnetwork[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/network/config.ml
+[32mnetwork[m     1 job [Unikernel.Main]
+[32mnetwork[m     Installing OPAM packages.
+[32mnetwork[m     [33m=>[m opam install --yes mirage-clock-xen mirage-console mirage-net-xen mirage-xen tcpip xen-evtchn xen-gnt xenstore
+[1;34m[NOTE][m Package mirage-clock-xen is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-xen is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package tcpip is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xen-evtchn is already installed (current version is 1.0.5).
+[1;34m[NOTE][m Package xen-gnt is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xenstore is already installed (current version is 1.2.5).
+The following actions will be performed:
+ - install   mirage-net-xen.1.1.3
+=== [33m1[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mmirage-net-xen.1.1.3[m] Downloading https://github.com/mirage/mirage-net-xen/archive/v1.1.3.tar.gz
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building mirage-net-xen.1.1.3:
+  make
+  make install
+Installing mirage-net-xen.1.1.3.
+[32mnetwork[m     [33m=>[m ocamlfind query -r -separator ' ' -format %d/%a -predicates native lwt.syntax mirage-clock-xen mirage-console.xen mirage-net-xen mirage-types.lwt tcpip.stack-direct
+[32mnetwork[m     [33m=>[m ocamlobjinfo /home/opam/.opam/4.01.0/lib/mirage-clock-xen/mirage-clock.cmxa /home/opam/.opam/4.01.0/lib/lwt/lwt.cmxa /home/opam/.opam/4.01.0/lib/ocaml/unix.cmxa /home/opam/.opam/4.01.0/lib/ocaml/bigarray.cmxa /home/opam/.opam/4.01.0/lib/ocplib-endian/ocplib_endian.cmxa /home/opam/.opam/4.01.0/lib/ocplib-endian/bigstring.cmxa /home/opam/.opam/4.01.0/lib/sexplib/sexplib.cmxa /home/opam/.opam/4.01.0/lib/cstruct/cstruct.cmxa /home/opam/.opam/4.01.0/lib/io-page/io_page.cmxa /home/opam/.opam/4.01.0/lib/xenstore/xenstore.cmxa /home/opam/.opam/4.01.0/lib/xenstore/xenstore_client_lwt.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/shared_memory_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/console_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/xenstore_ring.cmxa /home/opam/.opam/4.01.0/lib/shared-memory-ring/lwt_shared_memory_ring.cmxa /home/opam/.opam/4.01.0/lib/xen-gnt/xen_gnt.cmxa /home/opam/.opam/4.01.0/lib/xen-evtchn/xen_evtchn.cmxa /home/opam/.opam/4.01.0/lib/mirage-xen/oS.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage-console.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage_console_proto.cmxa /home/opam/.opam/4.01.0/lib/mirage-console/mirage_console_xen.cmxa /home/opam/.opam/4.01.0/lib/ipaddr/ipaddr.cmxa /home/opam/.opam/4.01.0/lib/mirage-net-xen/mirage-net-xen.cmxa /home/opam/.opam/4.01.0/lib/tcpip/tcpip.cmxa /home/opam/.opam/4.01.0/lib/tcpip/ethif.cmxa /home/opam/.opam/4.01.0/lib/tcpip/udpv4.cmxa /home/opam/.opam/4.01.0/lib/tcpip/ipv4.cmxa /home/opam/.opam/4.01.0/lib/tcpip/tcpv4.cmxa /home/opam/.opam/4.01.0/lib/tcpip/dhcpv4.cmxa /home/opam/.opam/4.01.0/lib/tcpip/tcpip-stack-direct.cmxa
+
+[32mnetwork[m     [36mGenerating:[m main.ml
+cd network && make depend
+make[1]: Entering directory `/home/opam/opam-repository/mirage-skeleton/network'
+opam install mirage-clock-xen mirage-console mirage-net-xen mirage-xen tcpip xen-evtchn xen-gnt xenstore --verbose
+[1;34m[NOTE][m Package mirage-clock-xen is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-net-xen is already installed (current version is 1.1.3).
+[1;34m[NOTE][m Package mirage-xen is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package tcpip is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xen-evtchn is already installed (current version is 1.0.5).
+[1;34m[NOTE][m Package xen-gnt is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xenstore is already installed (current version is 1.2.5).
+make[1]: Leaving directory `/home/opam/opam-repository/mirage-skeleton/network'
+mirage configure stackv4/config.ml --xen 
+[32mMirage[m      [36mUsing specified config file:[m stackv4/config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/mirage-skeleton/stackv4/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/mirage-skeleton/stackv4/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/mirage-skeleton/stackv4 && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mstackv4[m     [36mUsing configuration:[m /home/opam/opam-repository/mirage-skeleton/stackv4/config.ml
+[32mstackv4[m     1 job [Unikernel.Main]
+[32mstackv4[m     Installing OPAM packages.
+[32mstackv4[m     [33m=>[m opam install --yes mirage-clock-xen mirage-console mirage-http mirage-net-xen mirage-xen tcpip xen-evtchn xen-gnt xenstore
+[1;34m[NOTE][m Package mirage-clock-xen is already installed (current version is 1.0.0).
+[1;34m[NOTE][m Package mirage-console is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package mirage-net-xen is already installed (current version is 1.1.3).
+[1;34m[NOTE][m Package mirage-xen is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package tcpip is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xen-evtchn is already installed (current version is 1.0.5).
+[1;34m[NOTE][m Package xen-gnt is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package xenstore is already installed (current version is 1.2.5).
+The following actions will be performed:
+ - install   mirage-http.2.0.0
+=== [33m1[m to install ===
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mmirage-http.2.0.0[m] Fetching git://github.com/mirage/mirage-http
+
+[36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m [01mInstalling packages[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building mirage-http.2.0.0:
+  make
+  make install
+[31m[ERROR][m The compilation of mirage-http.2.0.0 failed.
+Removing mirage-http.2.0.0.
+  make uninstall
+
+
+[31m#==================[m [01mERROR[m [01mwhile installing mirage-http.2.0.0[m [31m==================#[m
+[31m#[m [31mopam-version[m 1.2.0~beta4
+[31m#[m [31mos[m           linux
+[31m#[m [31mcommand[m      make
+[31m#[m [31mpath[m         /home/opam/.opam/4.01.0/build/mirage-http.2.0.0
+[31m#[m [31mcompiler[m     4.01.0
+[31m#[m [31mexit-code[m    2
+[31m#[m [31menv-file[m     /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-17447-42bb52.env
+[31m#[m [31mstdout-file[m  /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-17447-42bb52.out
+[31m#[m [31mstderr-file[m  /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-17447-42bb52.err
+[31m### stdout ###
+[m[31m# [mmake[1]: Entering directory `/home/opam/.opam/4.01.0/build/mirage-http.2.0.0'
+[31m# [mmake[1]: Leaving directory `/home/opam/.opam/4.01.0/build/mirage-http.2.0.0'
+[31m### stderr ###
+[m[31m# [mocamlfind: Package `conduit.mirage' not found
+[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.01.0/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-b85cc4.txt'' terminated with error code 2
+[31m# [mE: Cannot find findlib package conduit.mirage
+[31m# [mE: Failure("1 configuration error")
+[31m# [mmake[1]: *** [setup.data] Error 1
+
+mirage: internal error, uncaught exception:
+        Sys_error("log: No such file or directory")
+        
+make: *** [stackv4-configure] Error 1
++ echo MIRAGE WORKS
+MIRAGE WORKS
