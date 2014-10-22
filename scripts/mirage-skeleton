@@ -8,7 +8,11 @@ eval `opam config env`
 git clone git://github.com/mirage/mirage-skeleton
 cd mirage-skeleton
 export MODE=unix
-make configure && make depend && make build
+make configure
+make depend
+make build
 export MODE=xen
-make configure && make depend && make build
+make configure
+make depend
+make build
 echo MIRAGE WORKS
