@@ -12,6 +12,9 @@ for script in mirage-www mirage-skeleton; do
   done
 done
 
+echo "Latest build logs" > logs/README
+./analyse_logs >> logs/README
+
 git add logs/
 git commit -m "Sync logs"
 git push

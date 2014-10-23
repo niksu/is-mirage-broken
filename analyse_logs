@@ -1,0 +1,15 @@
+#!/bin/sh
+
+for FILE in `ls logs/mirage*`
+do
+  LOGNAME=`basename ${FILE}`
+  ENDING=`tail -n 1 $FILE`
+  echo "${ENDING}" | grep -q "MIRAGE WORKS"
+  if [ "$?" -eq 0 ]
+  then
+    echo " OK\c"
+  else
+    echo " :(\c"
+  fi
+  echo " ${LOGNAME} : ${ENDING}"
+done
