@@ -1,15 +1,30 @@
 #!/bin/sh
 
+#FIXME This script does a small amount of processing on the last line of a log,
+#  but I haven't hardened the string processing (e.g., to protect against code
+#  injection on the build server via an engineered build failure..).
+
+#An assignment and an axiom?
+SUCCESS="MIRAGE WORKS"
+
+cat <<EOF
+<table>
+<tr><td style="text-align:center;">Status</td><td style="text-align:center;">Target</td><td>Last line of log</td></tr>
+<tr><th colspan=3 style="background-color:black;"></th></tr>
+EOF
 for FILE in `ls logs/mirage*`
 do
+  ACC='<tr><td style="text-align:center;background-color:'
   LOGNAME=`basename ${FILE}`
-  ENDING=`tail -n 1 $FILE`
-  echo "${ENDING}" | grep -q "MIRAGE WORKS"
+  ENDING=`tail -n 1 $FILE | sed 's/[ \n]*$//'`
+  echo "${ENDING}" | grep -q "${SUCCESS}"
   if [ "$?" -eq 0 ]
   then
-    echo " OK\c"
+    ACC="${ACC}"'lightgreen;">OK'
   else
-    echo " :(\c"
+    ACC="${ACC}"'red;">:('
   fi
-  echo " ${LOGNAME} : ${ENDING}"
+  echo "${ACC}"'</td><td>'"${LOGNAME}"'</td><td style="background-color:lightgray;">'"${ENDING}"
+  echo '</td></tr>'
 done
+echo "</table>"
