@@ -12,7 +12,7 @@ for script in mirage-www mirage-skeleton; do
   done
 done
 
-echo "Latest build logs" > logs/README
+echo "Latest build logs (as of $(date))" > logs/README
 ./analyse_logs >> logs/README
 
 git add logs/
