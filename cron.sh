@@ -4,7 +4,7 @@ sudo docker.io pull avsm/docker-opam
 
 git pull --no-edit
 
-OUTPUT_FILE=README.html
+OUTPUT_FILE=README.md
 
 for script in mirage-www mirage-skeleton; do
   for distro in ubuntu-trusty centos-7; do
