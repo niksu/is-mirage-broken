@@ -20,11 +20,11 @@ do
   echo "${ENDING}" | grep -q "${SUCCESS}"
   if [ "$?" -eq 0 ]
   then
-    ACC="${ACC}"'bgcolor="#00FF00">OK'
+    ACC="${ACC}"'color="#00FF00">OK'
   else
-    ACC="${ACC}"'bgcolor="#FF0000">:('
+    ACC="${ACC}"'color="#FF0000">:('
   fi
-  echo "${ACC}"'</td><td>'"${LOGNAME}"'</td><td bgcolor="#D1D0CE">'"${ENDING}"
+  echo "${ACC}"'</td><td>'"${LOGNAME}"'</td><td>'"${ENDING}"
   echo '</td></tr>'
 done
 echo "</table>"
