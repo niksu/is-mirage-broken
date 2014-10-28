@@ -38,9 +38,9 @@ Loaded plugins: fastestmirror
 home_ocaml                                               | 1.2 kB     00:00     
 updates                                                  | 3.4 kB     00:00     
 Loading mirror speeds from cached hostfile
- * base: mirror.thelinuxfix.com
- * extras: mirror.anl.gov
- * updates: cosmos.cites.illinois.edu
+ * base: www.gtlib.gatech.edu
+ * extras: centos.mirrors.tds.net
+ * updates: centos.chi.host-engine.com
 Resolving Dependencies
 --> Running transaction check
 ---> Package openssl-devel.x86_64 1:1.0.1e-34.el7_0.6 will be installed
@@ -97,17 +97,17 @@ Total download size: 3.5 M
 Downloading packages:
 Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 (2/10): krb5-devel-1.11.3- 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:00     
-(2/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
-(4/10): libcom_err-devel-1 1% [                 ]  0.0 B/s |  49 kB   --:-- ETA (3/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
+(2/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
+(3/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
 (4/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
-(5/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
-(6/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm         | 1.2 MB   00:00     
-(7/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
-(9/10): openssl-libs-1.0.1 56% [=========       ] 3.0 MB/s | 2.0 MB   00:00 ETA (8/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
-(9/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:00     
+(5/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:00     
+(6/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
+(8/10): openssl-devel-1.0. 25% [====            ]  0.0 B/s | 913 kB   --:-- ETA (7/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
+(8/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm         | 1.2 MB   00:00     
+(9/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
 (10/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm         | 941 kB   00:00     
 --------------------------------------------------------------------------------
-Total                                              2.6 MB/s | 3.5 MB  00:01     
+Total                                              2.7 MB/s | 3.5 MB  00:01     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -189,15 +189,15 @@ The following actions will be performed:
 [[32mtype_conv.111.13.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.13.00/individual/type_conv-111.13.00.tar.gz
 
 [36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
-Building ounit.2.0.0:
-  make build
+Building optcomp.1.6:
+  ./configure --prefix /home/opam/.opam/4.01.0
+  make
   make install
 Building cmdliner.0.9.5:
   ocaml pkg/git.ml
   ocaml pkg/build.ml native=true native-dynlink=true
-Building optcomp.1.6:
-  ./configure --prefix /home/opam/.opam/4.01.0
-  make
+Building ounit.2.0.0:
+  make build
   make install
 Installing cmdliner.0.9.5.
 Building re.1.2.2:
@@ -205,13 +205,13 @@ Building re.1.2.2:
   ocaml setup.ml -build
   ocaml setup.ml -install
 Installing optcomp.1.6.
-Installing ounit.2.0.0.
 Copying ~/.opam/repo/default/packages/ssl/ssl.0.4.7/files/pkgconfigure to ~/.opam/4.01.0/build/ssl.0.4.7/
-Building type_conv.111.13.00:
-  make
-  make install
 Building ssl.0.4.7:
   ./configure --prefix /home/opam/.opam/4.01.0
+  make
+  make install
+Installing ounit.2.0.0.
+Building type_conv.111.13.00:
   make
   make install
 Installing re.1.2.2.
@@ -220,11 +220,11 @@ Building crunch.1.3.0:
   ocaml setup.ml -build
   ocaml setup.ml -install
 Installing type_conv.111.13.00.
-Installing crunch.1.3.0.
 Building ocplib-endian.0.4:
   ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
+Installing crunch.1.3.0.
 Building sexplib.111.25.00:
   ./configure --enable-syntax
   make
@@ -277,10 +277,9 @@ Installing mirage.2.0.0.
 ++ git clone git://github.com/mirage/mirage-www
 Cloning into 'mirage-www'...
 remote: Counting objects: 5399, done.[K
-remote: Compressing objects:  20% (1/5)   [Kremote: Compressing objects:  40% (2/5)   [Kremote: Compressing objects:  60% (3/5)   [Kremote: Compressing objects:  80% (4/5)   [Kremote: Compressing objects: 100% (5/5)   [Kremote: Compressing objects: 100% (5/5), done.[K
-Receiving objects:   0% (1/5399)   Receiving objects:   1% (54/5399)   Receiving objects:   2% (108/5399)   Receiving objects:   3% (162/5399)   Receiving objects:   4% (216/5399)   Receiving objects:   5% (270/5399)   Receiving objects:   6% (324/5399)   Receiving objects:   7% (378/5399)   Receiving objects:   8% (432/5399)   Receiving objects:   9% (486/5399)   Receiving objects:  10% (540/5399)   Receiving objects:  11% (594/5399)   Receiving objects:  12% (648/5399)   Receiving objects:  13% (702/5399)   Receiving objects:  14% (756/5399)   Receiving objects:  15% (810/5399)   Receiving objects:  16% (864/5399)   Receiving objects:  17% (918/5399)   Receiving objects:  18% (972/5399)   Receiving objects:  19% (1026/5399)   Receiving objects:  20% (1080/5399)   Receiving objects:  21% (1134/5399)   Receiving objects:  22% (1188/5399)   Receiving objects:  23% (1242/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  24% (1296/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  25% (1350/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  26% (1404/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  27% (1458/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  28% (1512/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  29% (1566/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  30% (1620/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  31% (1674/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  32% (1728/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  33% (1782/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  34% (1836/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  35% (1890/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  36% (1944/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  37% (1998/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  38% (2052/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  39% (2106/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  40% (2160/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  41% (2214/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  42% (2268/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  43% (2322/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  44% (2376/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  45% (2430/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  46% (2484/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  47% (2538/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  48% (2592/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  49% (2646/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  50% (2700/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  51% (2754/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  52% (2808/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  53% (2862/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  54% (2916/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  55% (2970/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  56% (3024/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  57% (3078/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  58% (3132/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  59% (3186/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  60% (3240/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  61% (3294/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  62% (3348/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  63% (3402/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  64% (3456/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  65% (3510/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  66% (3564/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  67% (3618/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  68% (3672/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  69% (3726/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  70% (3780/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  70% (3823/5399), 900.00 KiB | 1.67 MiB/s   Receiving objects:  71% (3834/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  72% (3888/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  73% (3942/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  74% (3996/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  75% (4050/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  76% (4104/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  77% (4158/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  78% (4212/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  79% (4266/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  80% (4320/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  81% (4374/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  82% (4428/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  83% (4482/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  84% (4536/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  85% (4590/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  86% (4644/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  87% (4698/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  88% (4752/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  89% (4806/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  90% (4860/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  91% (4914/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  92% (4968/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  93% (5022/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  94% (5076/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  95% (5130/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  96% (5184/5399), 2.89 MiB | 2.79 MiB/s   remote: Total 5399 (delta 0), reused 0 (delta 0)[K
-Receiving objects:  97% (5238/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  98% (5292/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects:  99% (5346/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects: 100% (5399/5399), 2.89 MiB | 2.79 MiB/s   Receiving objects: 100% (5399/5399), 3.58 MiB | 2.79 MiB/s, done.
-Resolving deltas:   0% (0/3305)   Resolving deltas:   2% (99/3305)   Resolving deltas:   3% (102/3305)   Resolving deltas:   4% (137/3305)   Resolving deltas:   5% (177/3305)   Resolving deltas:   8% (266/3305)   Resolving deltas:   9% (299/3305)   Resolving deltas:  10% (359/3305)   Resolving deltas:  11% (364/3305)   Resolving deltas:  13% (448/3305)   Resolving deltas:  14% (469/3305)   Resolving deltas:  15% (496/3305)   Resolving deltas:  16% (534/3305)   Resolving deltas:  17% (563/3305)   Resolving deltas:  18% (600/3305)   Resolving deltas:  19% (628/3305)   Resolving deltas:  20% (685/3305)   Resolving deltas:  21% (695/3305)   Resolving deltas:  22% (736/3305)   Resolving deltas:  23% (765/3305)   Resolving deltas:  24% (798/3305)   Resolving deltas:  25% (846/3305)   Resolving deltas:  26% (877/3305)   Resolving deltas:  28% (938/3305)   Resolving deltas:  40% (1354/3305)   Resolving deltas:  42% (1390/3305)   Resolving deltas:  43% (1429/3305)   Resolving deltas:  44% (1458/3305)   Resolving deltas:  47% (1565/3305)   Resolving deltas:  48% (1608/3305)   Resolving deltas:  50% (1681/3305)   Resolving deltas:  51% (1688/3305)   Resolving deltas:  52% (1744/3305)   Resolving deltas:  53% (1762/3305)   Resolving deltas:  55% (1841/3305)   Resolving deltas:  56% (1851/3305)   Resolving deltas:  57% (1889/3305)   Resolving deltas:  58% (1940/3305)   Resolving deltas:  59% (1965/3305)   Resolving deltas:  60% (1991/3305)   Resolving deltas:  61% (2028/3305)   Resolving deltas:  62% (2074/3305)   Resolving deltas:  63% (2085/3305)   Resolving deltas:  64% (2142/3305)   Resolving deltas:  65% (2159/3305)   Resolving deltas:  66% (2192/3305)   Resolving deltas:  67% (2215/3305)   Resolving deltas:  68% (2277/3305)   Resolving deltas:  69% (2284/3305)   Resolving deltas:  70% (2346/3305)   Resolving deltas:  71% (2348/3305)   Resolving deltas:  72% (2380/3305)   Resolving deltas:  73% (2419/3305)   Resolving deltas:  74% (2447/3305)   Resolving deltas:  75% (2508/3305)   Resolving deltas:  76% (2517/3305)   Resolving deltas:  77% (2546/3305)   Resolving deltas:  78% (2599/3305)   Resolving deltas:  79% (2621/3305)   Resolving deltas:  80% (2646/3305)   Resolving deltas:  81% (2684/3305)   Resolving deltas:  82% (2718/3305)   Resolving deltas:  83% (2759/3305)   Resolving deltas:  84% (2781/3305)   Resolving deltas:  85% (2820/3305)   Resolving deltas:  86% (2875/3305)   Resolving deltas:  87% (2877/3305)   Resolving deltas:  88% (2916/3305)   Resolving deltas:  89% (2942/3305)   Resolving deltas:  90% (2979/3305)   Resolving deltas:  91% (3029/3305)   Resolving deltas:  92% (3044/3305)   Resolving deltas:  93% (3074/3305)   Resolving deltas:  94% (3111/3305)   Resolving deltas:  95% (3141/3305)   Resolving deltas:  96% (3175/3305)   Resolving deltas:  97% (3207/3305)   Resolving deltas:  98% (3253/3305)   Resolving deltas:  99% (3283/3305)   Resolving deltas: 100% (3305/3305)   Resolving deltas: 100% (3305/3305), done.
+Receiving objects:   0% (1/5399)   Receiving objects:   1% (54/5399)   Receiving objects:   2% (108/5399)   Receiving objects:   3% (162/5399)   Receiving objects:   4% (216/5399)   Receiving objects:   5% (270/5399)   Receiving objects:   6% (324/5399)   Receiving objects:   7% (378/5399)   Receiving objects:   8% (432/5399)   Receiving objects:   9% (486/5399)   Receiving objects:  10% (540/5399)   Receiving objects:  11% (594/5399)   Receiving objects:  12% (648/5399)   Receiving objects:  13% (702/5399)   Receiving objects:  14% (756/5399)   Receiving objects:  15% (810/5399)   Receiving objects:  16% (864/5399)   Receiving objects:  17% (918/5399)   Receiving objects:  18% (972/5399)   Receiving objects:  19% (1026/5399)   Receiving objects:  20% (1080/5399)   Receiving objects:  21% (1134/5399)   Receiving objects:  22% (1188/5399)   Receiving objects:  23% (1242/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  24% (1296/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  25% (1350/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  26% (1404/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  27% (1458/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  28% (1512/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  29% (1566/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  30% (1620/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  31% (1674/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  32% (1728/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  33% (1782/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  34% (1836/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  35% (1890/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  36% (1944/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  37% (1998/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  38% (2052/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  39% (2106/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  40% (2160/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  41% (2214/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  42% (2268/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  43% (2322/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  44% (2376/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  45% (2430/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  46% (2484/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  47% (2538/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  48% (2592/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  49% (2646/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  50% (2700/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  51% (2754/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  52% (2808/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  53% (2862/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  54% (2916/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  55% (2970/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  56% (3024/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  57% (3078/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  58% (3132/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  59% (3186/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  60% (3240/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  61% (3294/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  62% (3348/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  63% (3402/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  64% (3456/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  65% (3510/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  66% (3564/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  67% (3618/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  68% (3672/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  69% (3726/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  70% (3780/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  71% (3834/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  72% (3888/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  73% (3942/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  74% (3996/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  75% (4050/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  76% (4104/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  77% (4158/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  78% (4212/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  79% (4266/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  80% (4320/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  81% (4374/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  82% (4428/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  83% (4482/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  84% (4536/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  85% (4590/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  86% (4644/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  87% (4698/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  88% (4752/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  89% (4806/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  90% (4860/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  91% (4914/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  92% (4968/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  93% (5022/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  94% (5076/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  95% (5130/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  96% (5184/5399), 1.14 MiB | 2.20 MiB/s   remote: Total 5399 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  97% (5238/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  98% (5292/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects:  99% (5346/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects: 100% (5399/5399), 1.14 MiB | 2.20 MiB/s   Receiving objects: 100% (5399/5399), 3.58 MiB | 2.20 MiB/s, done.
+Resolving deltas:   0% (0/3308)   Resolving deltas:   2% (93/3308)   Resolving deltas:   3% (110/3308)   Resolving deltas:   4% (133/3308)   Resolving deltas:   5% (171/3308)   Resolving deltas:   8% (287/3308)   Resolving deltas:   9% (303/3308)   Resolving deltas:  11% (364/3308)   Resolving deltas:  14% (474/3308)   Resolving deltas:  15% (499/3308)   Resolving deltas:  16% (532/3308)   Resolving deltas:  17% (566/3308)   Resolving deltas:  18% (603/3308)   Resolving deltas:  19% (634/3308)   Resolving deltas:  20% (668/3308)   Resolving deltas:  21% (703/3308)   Resolving deltas:  22% (734/3308)   Resolving deltas:  23% (761/3308)   Resolving deltas:  24% (795/3308)   Resolving deltas:  26% (863/3308)   Resolving deltas:  27% (907/3308)   Resolving deltas:  28% (946/3308)   Resolving deltas:  35% (1158/3308)   Resolving deltas:  37% (1230/3308)   Resolving deltas:  38% (1262/3308)   Resolving deltas:  44% (1461/3308)   Resolving deltas:  45% (1492/3308)   Resolving deltas:  48% (1596/3308)   Resolving deltas:  49% (1640/3308)   Resolving deltas:  51% (1716/3308)   Resolving deltas:  52% (1722/3308)   Resolving deltas:  53% (1781/3308)   Resolving deltas:  54% (1799/3308)   Resolving deltas:  55% (1821/3308)   Resolving deltas:  56% (1863/3308)   Resolving deltas:  57% (1888/3308)   Resolving deltas:  58% (1925/3308)   Resolving deltas:  59% (1964/3308)   Resolving deltas:  60% (1987/3308)   Resolving deltas:  61% (2034/3308)   Resolving deltas:  62% (2081/3308)   Resolving deltas:  63% (2094/3308)   Resolving deltas:  64% (2143/3308)   Resolving deltas:  65% (2174/3308)   Resolving deltas:  66% (2186/3308)   Resolving deltas:  67% (2233/3308)   Resolving deltas:  68% (2263/3308)   Resolving deltas:  71% (2359/3308)   Resolving deltas:  72% (2384/3308)   Resolving deltas:  73% (2416/3308)   Resolving deltas:  75% (2484/3308)   Resolving deltas:  76% (2528/3308)   Resolving deltas:  77% (2551/3308)   Resolving deltas:  78% (2607/3308)   Resolving deltas:  79% (2627/3308)   Resolving deltas:  80% (2652/3308)   Resolving deltas:  81% (2680/3308)   Resolving deltas:  82% (2733/3308)   Resolving deltas:  83% (2754/3308)   Resolving deltas:  84% (2783/3308)   Resolving deltas:  85% (2823/3308)   Resolving deltas:  86% (2849/3308)   Resolving deltas:  87% (2891/3308)   Resolving deltas:  88% (2913/3308)   Resolving deltas:  89% (2945/3308)   Resolving deltas:  90% (2979/3308)   Resolving deltas:  91% (3033/3308)   Resolving deltas:  92% (3048/3308)   Resolving deltas:  93% (3079/3308)   Resolving deltas:  94% (3115/3308)   Resolving deltas:  95% (3146/3308)   Resolving deltas:  96% (3176/3308)   Resolving deltas:  97% (3212/3308)   Resolving deltas:  98% (3242/3308)   Resolving deltas:  99% (3275/3308)   Resolving deltas: 100% (3308/3308)   Resolving deltas: 100% (3308/3308), done.
 ++ cd mirage-www
 ++ export MODE=unix
 ++ MODE=unix
@@ -491,7 +490,7 @@ Removing mirage-http.2.0.0.
 [31m#[m [31mstderr-file[m  /home/opam/.opam/4.01.0/build/mirage-http.2.0.0/mirage-http-12293-8b9749.err
 [31m### stderr ###
 [m[31m# [mocamlfind: Package `conduit.mirage' not found
-[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.01.0/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-81b75d.txt'' terminated with error code 2
+[31m# [mW: Field 'pkg_conduit_mirage' is not set: Command ''/home/opam/.opam/4.01.0/bin/ocamlfind' query -format %d conduit.mirage > '/tmp/oasis-a6aab7.txt'' terminated with error code 2
 [31m# [mE: Cannot find findlib package conduit.mirage
 [31m# [mE: Failure("1 configuration error")
 [31m# [mmake: *** [setup.data] Error 1
@@ -529,7 +528,7 @@ These actions have been completed [01msuccessfully[m
 The following [01mfailed[m
  - install   mirage-http.2.0.0
 
-The former state can be restored with opam switch import "/home/opam/.opam/4.01.0/backup/state-20140928163439.export"
+The former state can be restored with opam switch import "/home/opam/.opam/4.01.0/backup/state-20140928221107.export"
 mirage: internal error, uncaught exception:
         Sys_error("log: No such file or directory")
         
