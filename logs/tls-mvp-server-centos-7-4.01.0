@@ -1,0 +1,7 @@
++ tag=centos-7-4.01.0
++ script=tls-mvp-server
++ repo=avsm/docker-opam
++ docker=docker.io
++ pwd
++ sudo docker.io run --rm=true -v /home/opam/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.01.0 sh -c /scripts/tls-mvp-server
+sh: /scripts/tls-mvp-server: Permission denied
