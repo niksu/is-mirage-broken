@@ -1,0 +1,13 @@
+#!/bin/sh -ex
+
+sudo apt-get install -qq -y libgmp-dev
+
+opam remote add mirage git://github.com/mirage/mirage-dev
+opam update -u
+opam installext -j 3 mirage tls
+eval `opam config env`
+git clone git://github.com/mirleft/tls-mvp-server
+cd tls-mvp-server
+mirage configure --unix
+mirage build
+echo MIRAGE WORKS
