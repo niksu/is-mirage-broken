@@ -4,4 +4,5 @@
 + docker=docker.io
 + pwd
 + sudo docker.io run --rm=true -v /home/opam/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.02.1 sh -c /scripts/tls-mvp-server
-sh: /scripts/tls-mvp-server: Permission denied
++ sudo apt-get install -qq -y libgmp-dev
+sudo: apt-get: command not found

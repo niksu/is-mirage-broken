@@ -4,4 +4,309 @@
 + docker=docker.io
 + pwd
 + sudo docker.io run --rm=true -v /home/opam/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:ubuntu-trusty-4.01.0 sh -c /scripts/tls-mvp-server
-sh: 1: /scripts/tls-mvp-server: Permission denied
++ sudo apt-get install -qq -y libgmp-dev
+Selecting previously unselected package libgmpxx4ldbl:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21250 files and directories currently installed.)
+Preparing to unpack .../libgmpxx4ldbl_2%3a5.1.3+dfsg-1ubuntu1_amd64.deb ...
+Unpacking libgmpxx4ldbl:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+Selecting previously unselected package libgmp-dev:amd64.
+Preparing to unpack .../libgmp-dev_2%3a5.1.3+dfsg-1ubuntu1_amd64.deb ...
+Unpacking libgmp-dev:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+Setting up libgmpxx4ldbl:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+Setting up libgmp-dev:amd64 (2:5.1.3+dfsg-1ubuntu1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.3) ...
++ opam remote add mirage git://github.com/mirage/mirage-dev
+[[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+The following packages have been UPDATED upstream:
+ - camlp4.4.01.0
+ - ocamlfind.1.5.4
++ opam update -u
+[[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
+[[1;34mdefault[m] Synchronizing with /home/opam/opam-repository
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+Everything as up-to-date as possible (run with --verbose to show unavailable upgrades).
++ opam installext -j 3 mirage tls
+++ opam install -j 3 mirage tls -e ubuntu
++ depext='libffi-dev libgmp-dev'
++ echo Ubuntu depexts: libffi-dev libgmp-dev
+Ubuntu depexts: libffi-dev libgmp-dev
++ '[' 'libffi-dev libgmp-dev' '!=' '' ']'
++ sudo apt-get install -qq -y build-essential m4
++ sudo apt-get install -qq -y libffi-dev libgmp-dev
+Selecting previously unselected package libffi-dev:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21268 files and directories currently installed.)
+Preparing to unpack .../libffi-dev_3.1~rc1+r3.0.13-12_amd64.deb ...
+Unpacking libffi-dev:amd64 (3.1~rc1+r3.0.13-12) ...
+Setting up libffi-dev:amd64 (3.1~rc1+r3.0.13-12) ...
+++ opam install -j 3 mirage tls -e source,linux
++ srcext=
++ echo Ubuntu srcexts:
+Ubuntu srcexts:
++ '[' '' '!=' '' ']'
++ opam install -j 3 mirage tls
+The following actions will be performed:
+ - install   conf-gmp.1                            [required by zarith]
+ - install   re.1.2.2                              [required by mirage]
+ - install   type_conv.111.13.00                   [required by sexplib]
+ - install   cmdliner.0.9.5                        [required by mirage]
+ - install   optcomp.1.6                           [required by ocplib-endian]
+ - install   base-bytes.legacy                     [required by ctypes, ocplib-endian]
+ - install   ounit.2.0.0                           [required by io-page, cstruct]
+ - install   base-no-ppx.base                      [required by lwt]
+ - install   zarith.1.3                            [required by nocrypto]
+ - install   sexplib.111.25.00                     [required by tls, mirage]
+ - install   crunch.1.3.0                          [required by mirage]
+ - install   ocplib-endian.0.7                     [required by cstruct]
+ - install   ctypes.0.3.3                          [required by nocrypto]
+ - install   lwt.2.4.6                             [required by tls, mirage]
+ - install   ipaddr.2.5.0                          [required by mirage]
+ - install   cstruct.1.4.0                         [required by tls, mirage]
+ - install   nocrypto.0.2.0                        [required by tls]
+ - install   io-page.1.1.1                         [required by mirage]
+ - install   asn1-combinators.0.2.0                [required by x509]
+ - install   mirage-types.2.0.0                    [required by mirage]
+ - install   x509.0.2.0                            [required by tls]
+ - install   mirage.2.0.0
+ - install   tls.0.2.0
+=== [33m23[m to install ===
+
+[36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32masn1-combinators[m] Fetching git://github.com/mirleft/ocaml-asn1-combinators.git
+[[32mcmdliner.0.9.5[m] Downloading http://erratique.ch/software/cmdliner/releases/cmdliner-0.9.5.tbz
+[[32mcrunch.1.3.0[m] Downloading https://github.com/mirage/ocaml-crunch/archive/v1.3.0.tar.gz
+[[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
+[[32mctypes.0.3.3[m] Downloading https://github.com/ocamllabs/ocaml-ctypes/archive/0.3.3.tar.gz
+[[32mio-page.1.1.1[m] Downloading https://github.com/mirage/io-page/archive/v1.1.1.tar.gz
+[[32mipaddr.2.5.0[m] Downloading https://github.com/mirage/ocaml-ipaddr/archive/2.5.0.tar.gz
+[[32mlwt.2.4.6[m] Downloading https://github.com/ocsigen/lwt/archive/2.4.6.tar.gz
+[[32mmirage[m] Fetching git://github.com/mirage/mirage
+[[32mmirage-types[m] Fetching git://github.com/mirage/mirage
+[[32mnocrypto[m] Fetching git://github.com/mirleft/ocaml-nocrypto.git
+[[32mocplib-endian.0.7[m] Downloading https://github.com/OCamlPro/ocplib-endian/archive/0.7.tar.gz
+[[32moptcomp.1.6[m] Downloading https://github.com/diml/optcomp/archive/1.6.tar.gz
+[[32mounit.2.0.0[m] Downloading http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz
+[[32mre.1.2.2[m] Downloading https://github.com/ocaml/ocaml-re/archive/ocaml-re-1.2.2.tar.gz
+[[32msexplib.111.25.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.25.00/individual/sexplib-111.25.00.tar.gz
+[[32mtls[m] Fetching git://github.com/mirleft/ocaml-tls.git
+[[32mtype_conv.111.13.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.13.00/individual/type_conv-111.13.00.tar.gz
+[[32mx509[m] Fetching git://github.com/mirleft/ocaml-x509.git
+[[32mzarith.1.3[m] Downloading https://forge.ocamlcore.org/frs/download.php/1471/zarith-1.3.tgz
+
+[36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Installing base-bytes.legacy.
+Installing base-no-ppx.base.
+Copying ~/.opam/repo/default/packages/conf-gmp/conf-gmp.1/files/test.c to ~/.opam/4.01.0/build/conf-gmp.1/
+Building conf-gmp.1:
+  cc -c test.c
+Installing conf-gmp.1.
+Building cmdliner.0.9.5:
+  ocaml pkg/git.ml
+  ocaml pkg/build.ml native=true native-dynlink=true
+Building optcomp.1.6:
+  ./configure --prefix /home/opam/.opam/4.01.0
+  make
+  make install
+Building ounit.2.0.0:
+  make build
+  make install
+Installing cmdliner.0.9.5.
+Building re.1.2.2:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing optcomp.1.6.
+Installing re.1.2.2.
+Building type_conv.111.13.00:
+  make
+  make install
+Installing ounit.2.0.0.
+Building crunch.1.3.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Building ctypes.0.3.3:
+  make
+  make install
+Installing crunch.1.3.0.
+Building lwt.2.4.6:
+  ./configure --prefix /home/opam/.opam/4.01.0 --disable-libev --disable-react --disable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib --disable-ppx
+  make build
+  make install
+Installing type_conv.111.13.00.
+Building ocplib-endian.0.7:
+  ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing ocplib-endian.0.7.
+Building zarith.1.3:
+  ./configure
+  make
+  make install
+Installing ctypes.0.3.3.
+Building sexplib.111.25.00:
+  ./configure --enable-syntax
+  make
+  make install
+Installing zarith.1.3.
+Installing sexplib.111.25.00.
+Building ipaddr.2.5.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  make build
+  make install
+Installing ipaddr.2.5.0.
+Installing lwt.2.4.6.
+Building cstruct.1.4.0:
+  make
+  make install
+Installing cstruct.1.4.0.
+Building asn1-combinators.0.2.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Building nocrypto.0.2.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Building io-page.1.1.1:
+  make
+  make install
+Installing io-page.1.1.1.
+Building mirage-types.2.0.0:
+  make install-types
+Installing mirage-types.2.0.0.
+Building mirage.2.0.0:
+  ./configure --bindir /home/opam/.opam/4.01.0/bin
+  make
+  make install
+Installing asn1-combinators.0.2.0.
+Installing mirage.2.0.0.
+Installing nocrypto.0.2.0.
+Building x509.0.2.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing x509.0.2.0.
+Building tls.0.2.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0 --enable-lwt --enable-mirage
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing tls.0.2.0.
++ opam config env
++ eval CAML_LD_LIBRARY_PATH="/home/opam/.opam/4.01.0/lib/stublibs"; export CAML_LD_LIBRARY_PATH; MANPATH="/home/opam/.opam/4.01.0/man:"; export MANPATH; MAKELEVEL=""; export MAKELEVEL; MAKEFLAGS=""; export MAKEFLAGS; PERL5LIB="/home/opam/.opam/4.01.0/lib/perl5"; export PERL5LIB; OCAML_TOPLEVEL_PATH="/home/opam/.opam/4.01.0/lib/toplevel"; export OCAML_TOPLEVEL_PATH; PATH="/home/opam/.opam/4.01.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"; export PATH;
++ CAML_LD_LIBRARY_PATH=/home/opam/.opam/4.01.0/lib/stublibs
++ export CAML_LD_LIBRARY_PATH
++ MANPATH=/home/opam/.opam/4.01.0/man:
++ export MANPATH
++ MAKELEVEL=
++ export MAKELEVEL
++ MAKEFLAGS=
++ export MAKEFLAGS
++ PERL5LIB=/home/opam/.opam/4.01.0/lib/perl5
++ export PERL5LIB
++ OCAML_TOPLEVEL_PATH=/home/opam/.opam/4.01.0/lib/toplevel
++ export OCAML_TOPLEVEL_PATH
++ PATH=/home/opam/.opam/4.01.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++ export PATH
++ git clone git://github.com/mirleft/tls-mvp-server
+Cloning into 'tls-mvp-server'...
+remote: Counting objects: 24, done.[K
+remote: Compressing objects:   6% (1/15)   [Kremote: Compressing objects:  13% (2/15)   [Kremote: Compressing objects:  20% (3/15)   [Kremote: Compressing objects:  26% (4/15)   [Kremote: Compressing objects:  33% (5/15)   [Kremote: Compressing objects:  40% (6/15)   [Kremote: Compressing objects:  46% (7/15)   [Kremote: Compressing objects:  53% (8/15)   [Kremote: Compressing objects:  60% (9/15)   [Kremote: Compressing objects:  66% (10/15)   [Kremote: Compressing objects:  73% (11/15)   [Kremote: Compressing objects:  80% (12/15)   [Kremote: Compressing objects:  86% (13/15)   [Kremote: Compressing objects:  93% (14/15)   [Kremote: Compressing objects: 100% (15/15)   [Kremote: Compressing objects: 100% (15/15), done.[K
+remote: Total 24 (delta 9), reused 23 (delta 8)[K
+Receiving objects:   4% (1/24)   Receiving objects:   8% (2/24)   Receiving objects:  12% (3/24)   Receiving objects:  16% (4/24)   Receiving objects:  20% (5/24)   Receiving objects:  25% (6/24)   Receiving objects:  29% (7/24)   Receiving objects:  33% (8/24)   Receiving objects:  37% (9/24)   Receiving objects:  41% (10/24)   Receiving objects:  45% (11/24)   Receiving objects:  50% (12/24)   Receiving objects:  54% (13/24)   Receiving objects:  58% (14/24)   Receiving objects:  62% (15/24)   Receiving objects:  66% (16/24)   Receiving objects:  70% (17/24)   Receiving objects:  75% (18/24)   Receiving objects:  79% (19/24)   Receiving objects:  83% (20/24)   Receiving objects:  87% (21/24)   Receiving objects:  91% (22/24)   Receiving objects:  95% (23/24)   Receiving objects: 100% (24/24)   Receiving objects: 100% (24/24), 4.24 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/9)   Resolving deltas:  55% (5/9)   Resolving deltas:  66% (6/9)   Resolving deltas: 100% (9/9)   Resolving deltas: 100% (9/9), done.
+Checking connectivity... done.
++ cd tls-mvp-server
++ mirage configure --unix
+[32mMirage[m      [36mUsing scanned config file:[m config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/tls-mvp-server/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/tls-mvp-server/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/tls-mvp-server && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mtls-server[m  [36mUsing configuration:[m /home/opam/opam-repository/tls-mvp-server/config.ml
+[32mtls-server[m  1 job [Unikernel.Main]
+[32mtls-server[m  Installing OPAM packages.
+[32mtls-server[m  [33m=>[m opam install --yes crunch cstruct io-page lwt mirage-clock-unix mirage-console mirage-entropy-unix mirage-fs-unix mirage-types mirage-unix tcpip tls
+[1;34m[NOTE][m Package crunch is already installed (current version is 1.3.0).
+[1;34m[NOTE][m Package cstruct is already installed (current version is 1.4.0).
+[1;34m[NOTE][m Package io-page is already installed (current version is 1.1.1).
+[1;34m[NOTE][m Package lwt is already installed (current version is 2.4.6).
+[1;34m[NOTE][m Package mirage-types is already installed (current version is 2.0.0).
+[1;34m[NOTE][m Package tls is already installed (current version is 0.2.0).
+The following actions will be performed:
+ - install   mirage-types-lwt.2.0.0                [required by tcpip, mirage-console]
+ - install   shared-memory-ring.1.1.0              [required by mirage-unix]
+ - install   mirage-fs-unix.1.1.3
+ - install   tuntap.1.0.0                          [required by mirage-net-unix]
+ - install   mirage-clock-unix.1.0.0
+ - install   mirage-net-unix.1.1.1                 [required by tcpip]
+ - install   mirage-unix.1.1.0
+ - install   mirage-entropy-unix.0.1.6
+ - install   mirage-console.2.0.0
+ - install   tcpip.2.0.0
+=== [33m10[m to install ===
+
+[36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mmirage-clock-unix.1.0.0[m] Downloading https://github.com/mirage/mirage-clock/archive/v1.0.0.tar.gz
+[[32mmirage-console[m] Fetching git://github.com/mirage/mirage-console
+[[32mmirage-entropy-unix.0.1.6[m] Downloading https://github.com/mirage/mirage-entropy/archive/0.1.6.tar.gz
+[[32mmirage-fs-unix.1.1.3[m] Downloading https://github.com/mirage/mirage-fs-unix/archive/v1.1.3.tar.gz
+[[32mmirage-net-unix.1.1.1[m] Downloading https://github.com/mirage/mirage-net-unix/archive/v1.1.1.tar.gz
+[[32mmirage-unix.1.1.0[m] Downloading https://github.com/mirage/mirage-platform/archive/v1.1.0.tar.gz
+[[32mshared-memory-ring.1.1.0[m] Downloading https://github.com/mirage/shared-memory-ring/archive/1.1.0.tar.gz
+[[32mtcpip[m] Fetching git://github.com/mirage/mirage-tcpip
+[[32mtuntap.1.0.0[m] Downloading https://github.com/mirage/ocaml-tuntap/archive/v1.0.0.tar.gz
+
+[36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building mirage-clock-unix.1.0.0:
+  make unix-build
+  make unix-install
+Installing mirage-clock-unix.1.0.0.
+Building mirage-fs-unix.1.1.3:
+  make
+  make install
+Installing mirage-fs-unix.1.1.3.
+Installing mirage-types-lwt.2.0.0.
+Building shared-memory-ring.1.1.0:
+  make all
+  make install
+Installing shared-memory-ring.1.1.0.
+Building tuntap.1.0.0:
+  make PREFIX=/home/opam/.opam/4.01.0
+  make PREFIX=/home/opam/.opam/4.01.0 install
+Installing tuntap.1.0.0.
+Building mirage-net-unix.1.1.1:
+  make
+  make install
+Installing mirage-net-unix.1.1.1.
+Building mirage-unix.1.1.0:
+  make unix-build
+  make unix-install PREFIX=/home/opam/.opam/4.01.0
+Installing mirage-unix.1.1.0.
+Building mirage-console.2.0.0:
+  make
+  make install
+Installing mirage-console.2.0.0.
+Building mirage-entropy-unix.0.1.6:
+  make unix-build
+  make unix-install
+Installing mirage-entropy-unix.0.1.6.
+Building tcpip.2.0.0:
+  make
+  make install
+Installing tcpip.2.0.0.
+[32mtls-server[m  [36mGenerating:[m main.ml
++ mirage build
+[32mMirage[m      [36mUsing scanned config file:[m config.ml
+[32mMirage[m      [36mProcessing:[m /home/opam/opam-repository/tls-mvp-server/config.ml
+[32mMirage[m      [33m=>[m rm -rf /home/opam/opam-repository/tls-mvp-server/_build/config.*
+[32mMirage[m      [33m=>[m cd /home/opam/opam-repository/tls-mvp-server && ocamlbuild -use-ocamlfind -tags annot,bin_annot -pkg mirage config.cmxs
+[32mtls-server[m  Build: [36m/home/opam/opam-repository/tls-mvp-server/config.ml[m
+[32mtls-server[m  [33m=>[m make build
++ echo MIRAGE WORKS
+MIRAGE WORKS
