@@ -10,7 +10,6 @@ SUCCESS="MIRAGE WORKS"
 cat <<EOF
 <table>
 <tr><td style="text-align:center;">Status</td><td style="text-align:center;">Target</td><td>Last line of log</td></tr>
-<tr><th colspan=3 style="background-color:black;"></th></tr>
 EOF
 for FILE in `ls logs/mirage*`
 do
