@@ -12,7 +12,7 @@ Updating ~/.opam/repo/package-index ...
 Updating ~/.opam/packages/ ...
 The following packages have been UPDATED upstream:
  - camlp4.4.02.1+1
- - ocamlfind.1.5.4
+ - ocamlfind.1.5.5
 + opam update -u
 [[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
 [[1;34mdefault[m] Synchronizing with /home/opam/opam-repository
@@ -23,16 +23,58 @@ Updating ~/.opam/packages/ ...
 Everything as up-to-date as possible (run with --verbose to show unavailable upgrades).
 + opam installext -j 3 mirage tls
 ++ opam install -j 3 mirage tls -e centos,centos-7
-+ depext=
-+ echo CentOS 7 depexts:
-CentOS 7 depexts:
-+ '[' '' '!=' '' ']'
++ depext=libffi-devel
++ echo CentOS 7 depexts: libffi-devel
+CentOS 7 depexts: libffi-devel
++ '[' libffi-devel '!=' '' ']'
++ sudo yum install -y libffi-devel
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.advancedhosters.com
+ * extras: mirror.es.its.nyu.edu
+ * updates: mirror.cc.columbia.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package libffi-devel.x86_64 0:3.0.13-11.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch           Version                 Repository    Size
+================================================================================
+Installing:
+ libffi-devel         x86_64         3.0.13-11.el7           base          22 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 22 k
+Installed size: 27 k
+Downloading packages:
+libffi-devel-3.0.13-11.el7 0% [                 ]  0.0 B/s |    0 B   --:-- ETA libffi-devel-3.0.13-11.el7.x86_64.rpm                      |  22 kB   00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libffi-devel-3.0.13-11.el7.x [                             ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [#############                ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [#################            ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [##################           ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [###################          ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [#########################    ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [##########################   ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [###########################  ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x [############################ ] 1/1  Installing : libffi-devel-3.0.13-11.el7.x86_64                            1/1 
+install-info: No such file or directory for /usr/share/info/libffi.info.gz
+warning: %post(libffi-devel-3.0.13-11.el7.x86_64) scriptlet failed, exit status 1
+Non-fatal POSTIN scriptlet failure in rpm package libffi-devel-3.0.13-11.el7.x86_64
+  Verifying  : libffi-devel-3.0.13-11.el7.x86_64                            1/1 
+
+Installed:
+  libffi-devel.x86_64 0:3.0.13-11.el7                                           
+
+Complete!
 + opam install -j 3 mirage tls
 The following actions will be performed:
  - install   conf-gmp.1                            [required by zarith]
  - install   re.1.2.2                              [required by mirage]
  - install   cmdliner.0.9.5                        [required by mirage]
  - install   optcomp.1.6                           [required by ocplib-endian]
+ - install   ctypes.0.3                            [required by nocrypto]
  - install   lwt.2.4.5                             [required by tls, mirage]
  - install   ounit.2.0.0                           [required by io-page, cstruct]
  - install   type_conv.112.01.00                   [required by sexplib]
@@ -42,34 +84,35 @@ The following actions will be performed:
  - install   sexplib.112.01.00                     [required by tls, mirage]
  - install   ipaddr.2.5.0                          [required by mirage]
  - install   cstruct.1.4.0                         [required by tls, mirage]
- - install   nocrypto.0.1.0                        [required by tls]
+ - install   nocrypto.0.2.0                        [required by tls]
  - install   io-page.1.1.1                         [required by mirage]
- - install   asn1-combinators.0.1.0                [required by x509]
+ - install   asn1-combinators.0.1.1                [required by x509]
  - install   mirage-types.2.0.0                    [required by mirage]
- - install   x509.0.1.0                            [required by tls]
+ - install   x509.0.2.0                            [required by tls]
  - install   mirage.2.0.0
- - install   tls.0.1.0
-=== [33m20[m to install ===
+ - install   tls.0.2.0
+=== [33m21[m to install ===
 
 [36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
-[[32masn1-combinators.0.1.0[m] Downloading https://github.com/mirleft/ocaml-asn1-combinators/archive/0.1.0.tar.gz
+[[32masn1-combinators.0.1.1[m] Downloading https://github.com/mirleft/ocaml-asn1-combinators/archive/0.1.1.tar.gz
 [[32mcmdliner.0.9.5[m] Downloading http://erratique.ch/software/cmdliner/releases/cmdliner-0.9.5.tbz
 [[32mcrunch.1.3.0[m] Downloading https://github.com/mirage/ocaml-crunch/archive/v1.3.0.tar.gz
 [[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
+[[32mctypes.0.3[m] Downloading https://github.com/ocamllabs/ocaml-ctypes/archive/0.3.tar.gz
 [[32mio-page.1.1.1[m] Downloading https://github.com/mirage/io-page/archive/v1.1.1.tar.gz
 [[32mipaddr.2.5.0[m] Downloading https://github.com/mirage/ocaml-ipaddr/archive/2.5.0.tar.gz
 [[32mlwt.2.4.5[m] Downloading https://github.com/ocsigen/lwt/archive/2.4.5.tar.gz
 [[32mmirage[m] Fetching git://github.com/mirage/mirage
 [[32mmirage-types[m] Fetching git://github.com/mirage/mirage
-[[32mnocrypto.0.1.0[m] Downloading https://github.com/mirleft/ocaml-nocrypto/archive/0.1.0.tar.gz
+[[32mnocrypto.0.2.0[m] Downloading https://github.com/mirleft/ocaml-nocrypto/archive/0.2.0.tar.gz
 [[32mocplib-endian.0.4[m] Downloading https://github.com/OCamlPro/ocplib-endian/archive/0.4.tar.gz
 [[32moptcomp.1.6[m] Downloading https://github.com/diml/optcomp/archive/1.6.tar.gz
 [[32mounit.2.0.0[m] Downloading http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz
 [[32mre.1.2.2[m] Downloading https://github.com/ocaml/ocaml-re/archive/ocaml-re-1.2.2.tar.gz
 [[32msexplib.112.01.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/sexplib-112.01.00.tar.gz
-[[32mtls.0.1.0[m] Downloading https://github.com/mirleft/ocaml-tls/archive/0.1.0.tar.gz
+[[32mtls.0.2.0[m] Downloading https://github.com/mirleft/ocaml-tls/archive/0.2.0.tar.gz
 [[32mtype_conv.112.01.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/type_conv-112.01.00.tar.gz
-[[32mx509.0.1.0[m] Downloading https://github.com/mirleft/ocaml-x509/archive/0.1.0.tar.gz
+[[32mx509.0.2.0[m] Downloading https://github.com/mirleft/ocaml-x509/archive/0.2.0.tar.gz
 [[32mzarith.1.3[m] Downloading https://forge.ocamlcore.org/frs/download.php/1471/zarith-1.3.tgz
 
 [36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
@@ -79,6 +122,9 @@ Building conf-gmp.1:
 Building cmdliner.0.9.5:
   ocaml pkg/git.ml
   ocaml pkg/build.ml native=true native-dynlink=true
+Building ctypes.0.3:
+  make
+  make install
 [31m[ERROR][m The compilation of conf-gmp.1 failed.
 Removing conf-gmp.1.
   Nothing to do.
@@ -86,24 +132,25 @@ Building lwt.2.4.5:
   ./configure --disable-libev --disable-react --disable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib
   make build
   make install
+Installing cmdliner.0.9.5.
 Building optcomp.1.6:
   ./configure --prefix /home/opam/.opam/4.02.1
   make
   make install
-Installing cmdliner.0.9.5.
+Installing optcomp.1.6.
 Building ounit.2.0.0:
   make build
   make install
-Installing optcomp.1.6.
+Installing ctypes.0.3.
 Building re.1.2.2:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
   ocaml setup.ml -build
   ocaml setup.ml -install
-Installing ounit.2.0.0.
+Installing re.1.2.2.
 Building type_conv.112.01.00:
   make
   make install
-Installing re.1.2.2.
+Installing ounit.2.0.0.
 Building crunch.1.3.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
   ocaml setup.ml -build
@@ -151,9 +198,9 @@ Installing mirage.2.0.0.
 [31m#[m [31mpath[m         /home/opam/.opam/4.02.1/build/conf-gmp.1
 [31m#[m [31mcompiler[m     4.02.1
 [31m#[m [31mexit-code[m    1
-[31m#[m [31menv-file[m     /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-321-e4db2f.env
-[31m#[m [31mstdout-file[m  /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-321-e4db2f.out
-[31m#[m [31mstderr-file[m  /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-321-e4db2f.err
+[31m#[m [31menv-file[m     /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-335-0a5907.env
+[31m#[m [31mstdout-file[m  /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-335-0a5907.out
+[31m#[m [31mstderr-file[m  /home/opam/.opam/4.02.1/build/conf-gmp.1/conf-gmp-335-0a5907.err
 [31m### stderr ###
 [m[31m# [mtest.c:1:17: fatal error: gmp.h: No such file or directory
 [31m# [m #include <gmp.h>
@@ -172,6 +219,7 @@ These actions have been completed [01msuccessfully[m
  - install   ipaddr.2.5.0
  - install   ounit.2.0.0
  - install   lwt.2.4.5
+ - install   ctypes.0.3
  - install   crunch.1.3.0
  - install   optcomp.1.6
  - install   cmdliner.0.9.5
@@ -180,10 +228,10 @@ These actions have been completed [01msuccessfully[m
 The following [01mfailed[m
  - install   conf-gmp.1
 Due to the errors, the following have been [01mcancelled[m
- - install   x509.0.1.0
  - install   zarith.1.3
- - install   asn1-combinators.0.1.0
- - install   tls.0.1.0
- - install   nocrypto.0.1.0
+ - install   x509.0.2.0
+ - install   asn1-combinators.0.1.1
+ - install   nocrypto.0.2.0
+ - install   tls.0.2.0
 
-The former state can be restored with opam switch import "/home/opam/.opam/4.02.1/backup/state-20140931174911.export"
+The former state can be restored with opam switch import "/home/opam/.opam/4.02.1/backup/state-20141001175716.export"

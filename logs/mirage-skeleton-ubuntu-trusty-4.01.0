@@ -15,7 +15,7 @@ Updating ~/.opam/repo/package-index ...
 Updating ~/.opam/packages/ ...
 The following packages have been UPDATED upstream:
  - camlp4.4.01.0
- - ocamlfind.1.5.4
+ - ocamlfind.1.5.5
 + opam update -u
 [[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
 [[1;34mdefault[m] Synchronizing with /home/opam/opam-repository
@@ -33,7 +33,7 @@ Ubuntu depexts: libssl-dev
 + sudo apt-get install -qq -y build-essential m4
 + sudo apt-get install -qq -y libssl-dev
 Selecting previously unselected package zlib1g-dev:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21250 files and directories currently installed.)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21253 files and directories currently installed.)
 Preparing to unpack .../zlib1g-dev_1%3a1.2.8.dfsg-1ubuntu1_amd64.deb ...
 Unpacking zlib1g-dev:amd64 (1:1.2.8.dfsg-1ubuntu1) ...
 Selecting previously unselected package libssl-dev:amd64.
@@ -60,7 +60,7 @@ The following actions will be performed:
  - install   ounit.2.0.0                           [required by io-page, cstruct]
  - install   ssl.0.4.7
  - install   base-no-ppx.base                      [required by lwt]
- - install   sexplib.111.13.00                     [required by mirage]
+ - install   sexplib.111.17.00                     [required by mirage]
  - install   crunch.1.3.0                          [required by mirage]
  - install   ocplib-endian.0.7                     [required by cstruct]
  - install   lwt.2.4.6                             [required by mirage]
@@ -84,20 +84,20 @@ The following actions will be performed:
 [[32moptcomp.1.6[m] Downloading https://github.com/diml/optcomp/archive/1.6.tar.gz
 [[32mounit.2.0.0[m] Downloading http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz
 [[32mre.1.2.2[m] Downloading https://github.com/ocaml/ocaml-re/archive/ocaml-re-1.2.2.tar.gz
-[[32msexplib.111.13.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.13.00/individual/sexplib-111.13.00.tar.gz
+[[32msexplib.111.17.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.17.00/individual/sexplib-111.17.00.tar.gz
 [[32mssl.0.4.7[m] Downloading http://downloads.sourceforge.net/project/savonet/ocaml-ssl/0.4.7/ocaml-ssl-0.4.7.tar.gz
 [[32mtype_conv.111.13.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/111.13.00/individual/type_conv-111.13.00.tar.gz
 
 [36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
 Installing base-bytes.legacy.
 Installing base-no-ppx.base.
+Building cmdliner.0.9.5:
+  ocaml pkg/git.ml
+  ocaml pkg/build.ml native=true native-dynlink=true
 Building optcomp.1.6:
   ./configure --prefix /home/opam/.opam/4.01.0
   make
   make install
-Building cmdliner.0.9.5:
-  ocaml pkg/git.ml
-  ocaml pkg/build.ml native=true native-dynlink=true
 Building ounit.2.0.0:
   make build
   make install
@@ -122,12 +122,13 @@ Building crunch.1.3.0:
   ocaml setup.ml -build
   ocaml setup.ml -install
 Installing type_conv.111.13.00.
-Installing crunch.1.3.0.
 Building ocplib-endian.0.7:
   ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
-Building sexplib.111.13.00:
+Installing crunch.1.3.0.
+Building sexplib.111.17.00:
+  ./configure --enable-syntax
   make
   make install
 Installing ssl.0.4.7.
@@ -136,7 +137,7 @@ Building lwt.2.4.6:
   make build
   make install
 Installing ocplib-endian.0.7.
-Installing sexplib.111.13.00.
+Installing sexplib.111.17.00.
 Building ipaddr.2.5.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   make build
@@ -178,9 +179,9 @@ Installing mirage.2.0.0.
 + git clone git://github.com/mirage/mirage-skeleton
 Cloning into 'mirage-skeleton'...
 remote: Counting objects: 1201, done.[K
-Receiving objects:   0% (1/1201)   Receiving objects:   1% (13/1201)   Receiving objects:   2% (25/1201)   Receiving objects:   3% (37/1201)   Receiving objects:   4% (49/1201)   Receiving objects:   5% (61/1201)   Receiving objects:   6% (73/1201)   Receiving objects:   7% (85/1201)   Receiving objects:   8% (97/1201)   Receiving objects:   9% (109/1201)   Receiving objects:  10% (121/1201)   Receiving objects:  11% (133/1201)   Receiving objects:  12% (145/1201)   Receiving objects:  13% (157/1201)   Receiving objects:  14% (169/1201)   Receiving objects:  15% (181/1201)   Receiving objects:  16% (193/1201)   Receiving objects:  17% (205/1201)   Receiving objects:  18% (217/1201)   Receiving objects:  19% (229/1201)   Receiving objects:  20% (241/1201)   Receiving objects:  21% (253/1201)   Receiving objects:  22% (265/1201)   Receiving objects:  23% (277/1201)   Receiving objects:  24% (289/1201)   Receiving objects:  25% (301/1201)   Receiving objects:  26% (313/1201)   Receiving objects:  27% (325/1201)   Receiving objects:  28% (337/1201)   Receiving objects:  29% (349/1201)   Receiving objects:  30% (361/1201)   Receiving objects:  31% (373/1201)   Receiving objects:  32% (385/1201)   Receiving objects:  33% (397/1201)   Receiving objects:  34% (409/1201)   Receiving objects:  35% (421/1201)   Receiving objects:  36% (433/1201)   Receiving objects:  37% (445/1201)   Receiving objects:  38% (457/1201)   Receiving objects:  39% (469/1201)   Receiving objects:  40% (481/1201)   Receiving objects:  41% (493/1201)   Receiving objects:  42% (505/1201)   Receiving objects:  43% (517/1201)   Receiving objects:  44% (529/1201)   Receiving objects:  45% (541/1201)   Receiving objects:  46% (553/1201)   Receiving objects:  47% (565/1201)   Receiving objects:  48% (577/1201)   Receiving objects:  49% (589/1201)   Receiving objects:  50% (601/1201)   Receiving objects:  51% (613/1201)   Receiving objects:  52% (625/1201)   Receiving objects:  53% (637/1201)   Receiving objects:  54% (649/1201)   Receiving objects:  55% (661/1201)   Receiving objects:  56% (673/1201)   Receiving objects:  57% (685/1201)   Receiving objects:  58% (697/1201)   Receiving objects:  59% (709/1201)   Receiving objects:  60% (721/1201)   Receiving objects:  61% (733/1201)   Receiving objects:  62% (745/1201)   Receiving objects:  63% (757/1201)   Receiving objects:  64% (769/1201)   Receiving objects:  65% (781/1201)   Receiving objects:  66% (793/1201)   Receiving objects:  67% (805/1201)   Receiving objects:  68% (817/1201)   Receiving objects:  69% (829/1201)   Receiving objects:  70% (841/1201)   Receiving objects:  71% (853/1201)   Receiving objects:  72% (865/1201)   Receiving objects:  73% (877/1201)   Receiving objects:  74% (889/1201)   Receiving objects:  75% (901/1201)   remote: Total 1201 (delta 0), reused 0 (delta 0)[K
-Receiving objects:  76% (913/1201)   Receiving objects:  77% (925/1201)   Receiving objects:  78% (937/1201)   Receiving objects:  79% (949/1201)   Receiving objects:  80% (961/1201)   Receiving objects:  81% (973/1201)   Receiving objects:  82% (985/1201)   Receiving objects:  83% (997/1201)   Receiving objects:  84% (1009/1201)   Receiving objects:  85% (1021/1201)   Receiving objects:  86% (1033/1201)   Receiving objects:  87% (1045/1201)   Receiving objects:  88% (1057/1201)   Receiving objects:  89% (1069/1201)   Receiving objects:  90% (1081/1201)   Receiving objects:  91% (1093/1201)   Receiving objects:  92% (1105/1201)   Receiving objects:  93% (1117/1201)   Receiving objects:  94% (1129/1201)   Receiving objects:  95% (1141/1201)   Receiving objects:  96% (1153/1201)   Receiving objects:  97% (1165/1201)   Receiving objects:  98% (1177/1201)   Receiving objects:  99% (1189/1201)   Receiving objects: 100% (1201/1201)   Receiving objects: 100% (1201/1201), 216.87 KiB | 0 bytes/s, done.
-Resolving deltas:   0% (0/561)   Resolving deltas:   1% (6/561)   Resolving deltas:   3% (19/561)   Resolving deltas:   4% (26/561)   Resolving deltas:   5% (33/561)   Resolving deltas:   8% (47/561)   Resolving deltas:   9% (52/561)   Resolving deltas:  10% (57/561)   Resolving deltas:  11% (62/561)   Resolving deltas:  12% (68/561)   Resolving deltas:  13% (73/561)   Resolving deltas:  14% (82/561)   Resolving deltas:  15% (88/561)   Resolving deltas:  16% (92/561)   Resolving deltas:  18% (103/561)   Resolving deltas:  19% (107/561)   Resolving deltas:  20% (113/561)   Resolving deltas:  21% (121/561)   Resolving deltas:  22% (125/561)   Resolving deltas:  24% (138/561)   Resolving deltas:  25% (145/561)   Resolving deltas:  26% (147/561)   Resolving deltas:  27% (152/561)   Resolving deltas:  28% (158/561)   Resolving deltas:  29% (167/561)   Resolving deltas:  30% (170/561)   Resolving deltas:  31% (174/561)   Resolving deltas:  34% (194/561)   Resolving deltas:  37% (213/561)   Resolving deltas:  39% (221/561)   Resolving deltas:  40% (227/561)   Resolving deltas:  42% (236/561)   Resolving deltas:  43% (242/561)   Resolving deltas:  49% (276/561)   Resolving deltas:  53% (298/561)   Resolving deltas:  54% (304/561)   Resolving deltas:  55% (310/561)   Resolving deltas:  57% (322/561)   Resolving deltas:  59% (334/561)   Resolving deltas:  60% (337/561)   Resolving deltas:  66% (374/561)   Resolving deltas:  67% (376/561)   Resolving deltas:  68% (382/561)   Resolving deltas:  76% (429/561)   Resolving deltas:  77% (432/561)   Resolving deltas:  78% (438/561)   Resolving deltas:  79% (446/561)   Resolving deltas:  80% (452/561)   Resolving deltas:  81% (455/561)   Resolving deltas:  82% (463/561)   Resolving deltas:  83% (467/561)   Resolving deltas:  84% (472/561)   Resolving deltas:  85% (482/561)   Resolving deltas:  87% (491/561)   Resolving deltas:  88% (494/561)   Resolving deltas:  89% (501/561)   Resolving deltas:  91% (511/561)   Resolving deltas:  92% (521/561)   Resolving deltas:  93% (526/561)   Resolving deltas:  94% (528/561)   Resolving deltas:  96% (539/561)   Resolving deltas:  98% (550/561)   Resolving deltas:  99% (558/561)   Resolving deltas: 100% (561/561)   Resolving deltas: 100% (561/561), done.
+Receiving objects:   0% (1/1201)   Receiving objects:   1% (13/1201)   Receiving objects:   2% (25/1201)   Receiving objects:   3% (37/1201)   Receiving objects:   4% (49/1201)   Receiving objects:   5% (61/1201)   Receiving objects:   6% (73/1201)   Receiving objects:   7% (85/1201)   Receiving objects:   8% (97/1201)   Receiving objects:   9% (109/1201)   Receiving objects:  10% (121/1201)   Receiving objects:  11% (133/1201)   Receiving objects:  12% (145/1201)   Receiving objects:  13% (157/1201)   Receiving objects:  14% (169/1201)   Receiving objects:  15% (181/1201)   Receiving objects:  16% (193/1201)   Receiving objects:  17% (205/1201)   Receiving objects:  18% (217/1201)   Receiving objects:  19% (229/1201)   Receiving objects:  20% (241/1201)   Receiving objects:  21% (253/1201)   Receiving objects:  22% (265/1201)   Receiving objects:  23% (277/1201)   Receiving objects:  24% (289/1201)   Receiving objects:  25% (301/1201)   Receiving objects:  26% (313/1201)   Receiving objects:  27% (325/1201)   Receiving objects:  28% (337/1201)   Receiving objects:  29% (349/1201)   Receiving objects:  30% (361/1201)   Receiving objects:  31% (373/1201)   Receiving objects:  32% (385/1201)   Receiving objects:  33% (397/1201)   Receiving objects:  34% (409/1201)   Receiving objects:  35% (421/1201)   Receiving objects:  36% (433/1201)   Receiving objects:  37% (445/1201)   Receiving objects:  38% (457/1201)   Receiving objects:  39% (469/1201)   Receiving objects:  40% (481/1201)   Receiving objects:  41% (493/1201)   Receiving objects:  42% (505/1201)   Receiving objects:  43% (517/1201)   Receiving objects:  44% (529/1201)   Receiving objects:  45% (541/1201)   Receiving objects:  46% (553/1201)   Receiving objects:  47% (565/1201)   Receiving objects:  48% (577/1201)   Receiving objects:  49% (589/1201)   Receiving objects:  50% (601/1201)   Receiving objects:  51% (613/1201)   Receiving objects:  52% (625/1201)   Receiving objects:  53% (637/1201)   Receiving objects:  54% (649/1201)   Receiving objects:  55% (661/1201)   Receiving objects:  56% (673/1201)   Receiving objects:  57% (685/1201)   Receiving objects:  58% (697/1201)   Receiving objects:  59% (709/1201)   Receiving objects:  60% (721/1201)   Receiving objects:  61% (733/1201)   Receiving objects:  62% (745/1201)   Receiving objects:  63% (757/1201)   Receiving objects:  64% (769/1201)   Receiving objects:  65% (781/1201)   Receiving objects:  66% (793/1201)   Receiving objects:  67% (805/1201)   Receiving objects:  68% (817/1201)   Receiving objects:  69% (829/1201)   Receiving objects:  70% (841/1201)   Receiving objects:  71% (853/1201)   Receiving objects:  72% (865/1201)   Receiving objects:  73% (877/1201)   Receiving objects:  74% (889/1201)   Receiving objects:  75% (901/1201)   Receiving objects:  76% (913/1201)   Receiving objects:  77% (925/1201)   Receiving objects:  78% (937/1201)   Receiving objects:  79% (949/1201)   Receiving objects:  80% (961/1201)   Receiving objects:  81% (973/1201)   Receiving objects:  82% (985/1201)   Receiving objects:  83% (997/1201)   Receiving objects:  84% (1009/1201)   Receiving objects:  85% (1021/1201)   Receiving objects:  86% (1033/1201)   Receiving objects:  87% (1045/1201)   Receiving objects:  88% (1057/1201)   remote: Total 1201 (delta 0), reused 0 (delta 0)[K
+Receiving objects:  89% (1069/1201)   Receiving objects:  90% (1081/1201)   Receiving objects:  91% (1093/1201)   Receiving objects:  92% (1105/1201)   Receiving objects:  93% (1117/1201)   Receiving objects:  94% (1129/1201)   Receiving objects:  95% (1141/1201)   Receiving objects:  96% (1153/1201)   Receiving objects:  97% (1165/1201)   Receiving objects:  98% (1177/1201)   Receiving objects:  99% (1189/1201)   Receiving objects: 100% (1201/1201)   Receiving objects: 100% (1201/1201), 216.87 KiB | 0 bytes/s, done.
+Resolving deltas:   0% (0/561)   Resolving deltas:   1% (6/561)   Resolving deltas:   3% (18/561)   Resolving deltas:   4% (26/561)   Resolving deltas:   6% (35/561)   Resolving deltas:   7% (41/561)   Resolving deltas:   9% (51/561)   Resolving deltas:  10% (61/561)   Resolving deltas:  11% (62/561)   Resolving deltas:  12% (70/561)   Resolving deltas:  13% (78/561)   Resolving deltas:  14% (82/561)   Resolving deltas:  15% (86/561)   Resolving deltas:  17% (97/561)   Resolving deltas:  18% (104/561)   Resolving deltas:  19% (108/561)   Resolving deltas:  20% (114/561)   Resolving deltas:  21% (123/561)   Resolving deltas:  22% (124/561)   Resolving deltas:  24% (137/561)   Resolving deltas:  26% (146/561)   Resolving deltas:  27% (152/561)   Resolving deltas:  28% (159/561)   Resolving deltas:  29% (165/561)   Resolving deltas:  30% (169/561)   Resolving deltas:  31% (175/561)   Resolving deltas:  34% (193/561)   Resolving deltas:  41% (232/561)   Resolving deltas:  43% (242/561)   Resolving deltas:  44% (249/561)   Resolving deltas:  46% (263/561)   Resolving deltas:  47% (265/561)   Resolving deltas:  54% (303/561)   Resolving deltas:  57% (323/561)   Resolving deltas:  59% (335/561)   Resolving deltas:  60% (337/561)   Resolving deltas:  62% (349/561)   Resolving deltas:  63% (355/561)   Resolving deltas:  67% (376/561)   Resolving deltas:  72% (404/561)   Resolving deltas:  77% (434/561)   Resolving deltas:  78% (438/561)   Resolving deltas:  79% (444/561)   Resolving deltas:  80% (450/561)   Resolving deltas:  82% (463/561)   Resolving deltas:  83% (467/561)   Resolving deltas:  84% (472/561)   Resolving deltas:  85% (477/561)   Resolving deltas:  87% (491/561)   Resolving deltas:  88% (495/561)   Resolving deltas:  89% (500/561)   Resolving deltas:  93% (523/561)   Resolving deltas:  95% (535/561)   Resolving deltas:  96% (539/561)   Resolving deltas:  97% (548/561)   Resolving deltas:  98% (552/561)   Resolving deltas:  99% (559/561)   Resolving deltas: 100% (561/561)   Resolving deltas: 100% (561/561), done.
 Checking connectivity... done.
 + cd mirage-skeleton
 + export MODE=unix
@@ -1000,9 +1001,9 @@ The following actions will be performed:
  - install   mirage-clock-xen.1.0.0                [required by mirage-xen]
  - install   xen-evtchn.1.0.5
  - install   ocamlify.0.0.1                        [required by oasis]
- - install   mirage-xen-minios.0.4                 [required by mirage-xen]
  - install   ocaml-data-notation.0.0.11            [required by oasis]
  - install   ocamlmod.0.0.7                        [required by oasis]
+ - install   mirage-xen-minios.0.4.1               [required by mirage-xen]
  - install   oasis.0.4.5                           [required by xen-gnt]
  - install   xen-gnt.2.0.0
  - install   mirage-xen.2.0.0
@@ -1024,7 +1025,7 @@ The following actions will be performed:
 [[32mmirage-console[m] Fetching git://github.com/mirage/mirage-console
 [[32mmirage-http[m] Fetching git://github.com/mirage/mirage-http
 [[32mmirage-xen[m] Fetching git://github.com/mirage/mirage-platform
-[[32mmirage-xen-minios.0.4[m] Downloading https://github.com/mirage/mirage-xen-minios/releases/download/v0.4/mirage-xen-minios-v0.4.tar.bz2
+[[32mmirage-xen-minios.0.4.1[m] Downloading https://github.com/mirage/mirage-xen-minios/releases/download/v0.4.1/mirage-xen-minios-v0.4.1.tar.bz2
 [[32moasis.0.4.5[m] Downloading https://forge.ocamlcore.org/frs/download.php/1475/oasis-0.4.5.tar.gz
 [[32mocaml-data-notation.0.0.11[m] Downloading https://forge.ocamlcore.org/frs/download.php/1310/ocaml-data-notation-0.0.11.tar.gz
 [[32mocamlify.0.0.1[m] Downloading http://forge.ocamlcore.org/frs/download.php/379/ocamlify-0.0.1.tar.gz
@@ -1056,9 +1057,9 @@ Building mirage-clock-xen.1.0.0:
   make xen-build
   make xen-install
 Installing mirage-clock-xen.1.0.0.
-Building mirage-xen-minios.0.4:
+Building mirage-xen-minios.0.4.1:
   make build
-Installing mirage-xen-minios.0.4.
+Installing mirage-xen-minios.0.4.1.
 Building ocaml-data-notation.0.0.11:
   make
   make install
