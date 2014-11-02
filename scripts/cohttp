@@ -1,0 +1,9 @@
+#!/bin/sh -ex
+
+opam remote add mirage git://github.com/mirage/mirage-dev
+opam update -u
+opam installext lwt ssl cohttp
+deps=`opam list --depends-on cohttp --rec -s`
+eval `opam config env`
+opam install $deps
+echo MIRAGE WORKS
