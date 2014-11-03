@@ -1,0 +1,280 @@
++ tag=centos-7-4.02.1
++ script=cohttp
++ repo=avsm/docker-opam
++ docker=docker.io
++ pwd
++ sudo docker.io run --rm=true -v /home/opam/is-mirage-broken/scripts:/scripts -t avsm/docker-opam:centos-7-4.02.1 sh -c /scripts/cohttp
++ opam remote add mirage git://github.com/mirage/mirage-dev
+[[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+The following packages have been UPDATED upstream:
+ - camlp4.4.02.1+1
+ - ocamlfind.1.5.5
++ opam update -u
+[[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
+[[1;34mdefault[m] Synchronizing with /home/opam/opam-repository
+Updating ~/.opam/repo/compiler-index ...
+Updating ~/.opam/compilers/ ...
+Updating ~/.opam/repo/package-index ...
+Updating ~/.opam/packages/ ...
+Everything as up-to-date as possible (run with --verbose to show unavailable upgrades).
++ opam installext lwt ssl cohttp
+++ opam install lwt ssl cohttp -e centos,centos-7
++ depext=openssl-devel
++ echo CentOS 7 depexts: openssl-devel
+CentOS 7 depexts: openssl-devel
++ '[' openssl-devel '!=' '' ']'
++ sudo yum install -y openssl-devel
+Loaded plugins: fastestmirror
+base                                                     | 3.6 kB     00:00     
+extras                                                   | 3.4 kB     00:00     
+home_ocaml                                               | 1.2 kB     00:00     
+updates                                                  | 3.4 kB     00:00     
+Loading mirror speeds from cached hostfile
+ * base: ftpmirror.your.org
+ * extras: mirror.cs.uwp.edu
+ * updates: mirrors.lga7.us.voxel.net
+Resolving Dependencies
+--> Running transaction check
+---> Package openssl-devel.x86_64 1:1.0.1e-34.el7_0.6 will be installed
+--> Processing Dependency: openssl-libs(x86-64) = 1:1.0.1e-34.el7_0.6 for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Processing Dependency: zlib-devel(x86-64) for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Processing Dependency: krb5-devel(x86-64) for package: 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64
+--> Running transaction check
+---> Package krb5-devel.x86_64 0:1.11.3-49.el7 will be installed
+--> Processing Dependency: libverto-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: libselinux-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: libcom_err-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+--> Processing Dependency: keyutils-libs-devel for package: krb5-devel-1.11.3-49.el7.x86_64
+---> Package openssl-libs.x86_64 1:1.0.1e-34.el7_0.4 will be updated
+---> Package openssl-libs.x86_64 1:1.0.1e-34.el7_0.6 will be an update
+---> Package zlib-devel.x86_64 0:1.2.7-13.el7 will be installed
+--> Running transaction check
+---> Package keyutils-libs-devel.x86_64 0:1.5.8-3.el7 will be installed
+---> Package libcom_err-devel.x86_64 0:1.42.9-4.el7 will be installed
+---> Package libselinux-devel.x86_64 0:2.2.2-6.el7 will be installed
+--> Processing Dependency: libsepol-devel >= 2.1.9-1 for package: libselinux-devel-2.2.2-6.el7.x86_64
+--> Processing Dependency: pkgconfig(libsepol) for package: libselinux-devel-2.2.2-6.el7.x86_64
+--> Processing Dependency: pkgconfig(libpcre) for package: libselinux-devel-2.2.2-6.el7.x86_64
+---> Package libverto-devel.x86_64 0:0.2.5-4.el7 will be installed
+--> Running transaction check
+---> Package libsepol-devel.x86_64 0:2.1.9-3.el7 will be installed
+---> Package pcre-devel.x86_64 0:8.32-12.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                 Arch       Version                   Repository   Size
+================================================================================
+Installing:
+ openssl-devel           x86_64     1:1.0.1e-34.el7_0.6       updates     1.2 M
+Installing for dependencies:
+ keyutils-libs-devel     x86_64     1.5.8-3.el7               base         37 k
+ krb5-devel              x86_64     1.11.3-49.el7             base        611 k
+ libcom_err-devel        x86_64     1.42.9-4.el7              base         30 k
+ libselinux-devel        x86_64     2.2.2-6.el7               base        174 k
+ libsepol-devel          x86_64     2.1.9-3.el7               base         71 k
+ libverto-devel          x86_64     0.2.5-4.el7               base         12 k
+ pcre-devel              x86_64     8.32-12.el7               base        477 k
+ zlib-devel              x86_64     1.2.7-13.el7              base         49 k
+Updating for dependencies:
+ openssl-libs            x86_64     1:1.0.1e-34.el7_0.6       updates     941 k
+
+Transaction Summary
+================================================================================
+Install  1 Package  (+8 Dependent packages)
+Upgrade             ( 1 Dependent package)
+
+Total download size: 3.5 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:00     
+(2/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
+(4/10): libcom_err-devel-1 1% [                 ]  0.0 B/s |  49 kB   --:-- ETA (3/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
+(4/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:00     
+(5/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
+(6/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
+(7/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
+(9/10): openssl-libs-1.0.1 27% [====            ] 948 kB/s | 984 kB   00:02 ETA (8/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
+(9/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm          | 941 kB   00:00     
+(10/10): openssl-devel-1.0 94% [=============== ] 1.3 MB/s | 3.3 MB   00:00 ETA (10/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm        | 1.2 MB   00:01     
+--------------------------------------------------------------------------------
+Total                                              2.3 MB/s | 3.5 MB  00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : keyutils-libs-devel-1.5.8-3 [                            ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#####                       ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [######                      ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#######                     ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########                    ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##########                  ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###########                 ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [############                ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##############              ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###############             ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [################            ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#################           ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##################          ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [###################         ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#####################       ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [######################      ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#######################     ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########################    ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [#########################   ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [##########################  ]  1/11  Installing : keyutils-libs-devel-1.5.8-3 [########################### ]  1/11  Installing : keyutils-libs-devel-1.5.8-3.el7.x86_64                      1/11 
+  Updating   : 1:openssl-libs-1.0.1e-34.el [                            ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#                           ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##                          ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###                         ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [####                        ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#####                       ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [######                      ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#######                     ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########                    ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#########                   ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##########                  ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###########                 ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [############                ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#############               ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##############              ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###############             ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [################            ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#################           ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##################          ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [###################         ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [####################        ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#####################       ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [######################      ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#######################     ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########################    ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [#########################   ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [##########################  ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el [########################### ]  2/11  Updating   : 1:openssl-libs-1.0.1e-34.el7_0.6.x86_64                     2/11 
+  Installing : pcre-devel-8.32-12.el7.x86_ [                            ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#                           ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##                          ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [###                         ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [######                      ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#######                     ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########                    ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#########                   ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [###########                 ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [############                ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#############               ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##############              ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [######################      ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#######################     ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########################    ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [#########################   ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [##########################  ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_ [########################### ]  3/11  Installing : pcre-devel-8.32-12.el7.x86_64                               3/11 
+  Installing : zlib-devel-1.2.7-13.el7.x86 [                            ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [###                         ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [################            ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [####################        ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [#####################       ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [######################      ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [########################    ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86 [########################### ]  4/11  Installing : zlib-devel-1.2.7-13.el7.x86_64                              4/11 
+  Installing : libsepol-devel-2.1.9-3.el7. [                            ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#                           ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##                          ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###                         ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [####                        ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#####                       ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [######                      ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#######                     ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########                    ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#########                   ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##########                  ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###########                 ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [############                ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#############               ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##############              ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [###############             ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [################            ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#####################       ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#######################     ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########################    ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [#########################   ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [##########################  ]  5/11  Installing : libsepol-devel-2.1.9-3.el7. [########################### ]  5/11  Installing : libsepol-devel-2.1.9-3.el7.x86_64                           5/11 
+  Installing : libselinux-devel-2.2.2-6.el [                            ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########                    ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##########                  ]  6/11  Installing : libselinux-devel-2.2.2-6.el [###########                 ]  6/11  Installing : libselinux-devel-2.2.2-6.el [############                ]  6/11  Installing : libselinux-devel-2.2.2-6.el [################            ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#################           ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##################          ]  6/11  Installing : libselinux-devel-2.2.2-6.el [###################         ]  6/11  Installing : libselinux-devel-2.2.2-6.el [####################        ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#####################       ]  6/11  Installing : libselinux-devel-2.2.2-6.el [######################      ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#######################     ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########################    ]  6/11  Installing : libselinux-devel-2.2.2-6.el [#########################   ]  6/11  Installing : libselinux-devel-2.2.2-6.el [##########################  ]  6/11  Installing : libselinux-devel-2.2.2-6.el [########################### ]  6/11  Installing : libselinux-devel-2.2.2-6.el7.x86_64                         6/11 
+  Installing : libverto-devel-0.2.5-4.el7. [                            ]  7/11  Installing : libverto-devel-0.2.5-4.el7. [#######                     ]  7/11  Installing : libverto-devel-0.2.5-4.el7. [########################### ]  7/11  Installing : libverto-devel-0.2.5-4.el7.x86_64                           7/11 
+  Installing : libcom_err-devel-1.42.9-4.e [                            ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [##                          ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [###                         ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [#############               ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [####################        ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [######################      ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [########################    ]  8/11  Installing : libcom_err-devel-1.42.9-4.e [########################### ]  8/11  Installing : libcom_err-devel-1.42.9-4.el7.x86_64                        8/11 
+  Installing : krb5-devel-1.11.3-49.el7.x8 [                            ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#                           ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##                          ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###                         ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [####                        ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#####                       ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [######                      ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#######                     ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########                    ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##########                  ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###########                 ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [############                ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#############               ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###############             ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [################            ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [##################          ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [###################         ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########################    ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [#########################   ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x8 [########################### ]  9/11  Installing : krb5-devel-1.11.3-49.el7.x86_64                             9/11 
+  Installing : 1:openssl-devel-1.0.1e-34.e [                            ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#                           ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##                          ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###                         ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [####                        ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#####                       ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [######                      ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#######                     ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########                    ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#########                   ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##########                  ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###########                 ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [############                ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#############               ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##############              ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###############             ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [################            ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#################           ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##################          ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [###################         ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [####################        ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#####################       ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [######################      ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#######################     ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########################    ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [#########################   ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [##########################  ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.e [########################### ] 10/11  Installing : 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64                   10/11 
+  Cleanup    : 1:openssl-libs-1.0.1e-34.el7_0.4.x86_64                    11/11 
+  Verifying  : libcom_err-devel-1.42.9-4.el7.x86_64                        1/11 
+  Verifying  : libselinux-devel-2.2.2-6.el7.x86_64                         2/11 
+  Verifying  : libverto-devel-0.2.5-4.el7.x86_64                           3/11 
+  Verifying  : 1:openssl-devel-1.0.1e-34.el7_0.6.x86_64                    4/11 
+  Verifying  : libsepol-devel-2.1.9-3.el7.x86_64                           5/11 
+  Verifying  : krb5-devel-1.11.3-49.el7.x86_64                             6/11 
+  Verifying  : zlib-devel-1.2.7-13.el7.x86_64                              7/11 
+  Verifying  : pcre-devel-8.32-12.el7.x86_64                               8/11 
+  Verifying  : 1:openssl-libs-1.0.1e-34.el7_0.6.x86_64                     9/11 
+  Verifying  : keyutils-libs-devel-1.5.8-3.el7.x86_64                     10/11 
+  Verifying  : 1:openssl-libs-1.0.1e-34.el7_0.4.x86_64                    11/11 
+
+Installed:
+  openssl-devel.x86_64 1:1.0.1e-34.el7_0.6                                      
+
+Dependency Installed:
+  keyutils-libs-devel.x86_64 0:1.5.8-3.el7                                      
+  krb5-devel.x86_64 0:1.11.3-49.el7                                             
+  libcom_err-devel.x86_64 0:1.42.9-4.el7                                        
+  libselinux-devel.x86_64 0:2.2.2-6.el7                                         
+  libsepol-devel.x86_64 0:2.1.9-3.el7                                           
+  libverto-devel.x86_64 0:0.2.5-4.el7                                           
+  pcre-devel.x86_64 0:8.32-12.el7                                               
+  zlib-devel.x86_64 0:1.2.7-13.el7                                              
+
+Dependency Updated:
+  openssl-libs.x86_64 1:1.0.1e-34.el7_0.6                                       
+
+Complete!
++ opam install lwt ssl cohttp
+The following actions will be performed:
+ - install   ounit.2.0.0                           [required by cohttp]
+ - install   ssl.0.4.7
+ - install   re.1.2.2                              [required by cohttp]
+ - install   optcomp.1.6                           [required by ocplib-endian]
+ - install   type_conv.112.01.00                   [required by fieldslib]
+ - install   stringext.1.0.0                       [required by cohttp]
+ - install   lwt.2.4.5
+ - install   ocplib-endian.0.4                     [required by cstruct]
+ - install   sexplib.112.01.00                     [required by cohttp]
+ - install   fieldslib.109.20.03                   [required by cohttp]
+ - install   uri.1.7.2                             [required by cohttp]
+ - install   ipaddr.2.5.0                          [required by conduit]
+ - install   cstruct.1.4.0                         [required by conduit]
+ - install   conduit.0.6.0                         [required by cohttp]
+ - install   cohttp.0.12.0
+=== [33m15[m to install ===
+
+[36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+[[32mcohttp.0.12.0[m] Downloading https://github.com/mirage/ocaml-cohttp/archive/v0.12.0.tar.gz
+[[32mconduit.0.6.0[m] Downloading https://github.com/mirage/ocaml-conduit/archive/v0.6.0.tar.gz
+[[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
+[[32mfieldslib.109.20.03[m] Downloading https://ocaml.janestreet.com/ocaml-core/109.20.00/individual/fieldslib-109.20.03.tar.gz
+[[32mipaddr.2.5.0[m] Downloading https://github.com/mirage/ocaml-ipaddr/archive/2.5.0.tar.gz
+[[32mlwt.2.4.5[m] Downloading https://github.com/ocsigen/lwt/archive/2.4.5.tar.gz
+[[32mocplib-endian.0.4[m] Downloading https://github.com/OCamlPro/ocplib-endian/archive/0.4.tar.gz
+[[32moptcomp.1.6[m] Downloading https://github.com/diml/optcomp/archive/1.6.tar.gz
+[[32mounit.2.0.0[m] Downloading http://forge.ocamlcore.org/frs/download.php/1258/ounit-2.0.0.tar.gz
+[[32mre.1.2.2[m] Downloading https://github.com/ocaml/ocaml-re/archive/ocaml-re-1.2.2.tar.gz
+[[32msexplib.112.01.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/sexplib-112.01.00.tar.gz
+[[32mssl.0.4.7[m] Downloading http://downloads.sourceforge.net/project/savonet/ocaml-ssl/0.4.7/ocaml-ssl-0.4.7.tar.gz
+[[32mstringext.1.0.0[m] Downloading https://github.com/rgrinberg/stringext/archive/v1.0.0.tar.gz
+[[32mtype_conv.112.01.00[m] Downloading https://ocaml.janestreet.com/ocaml-core/112.01.00/individual/type_conv-112.01.00.tar.gz
+[[32muri.1.7.2[m] Downloading https://github.com/mirage/ocaml-uri/archive/v1.7.2.tar.gz
+
+[36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
+Building optcomp.1.6:
+  ./configure --prefix /home/opam/.opam/4.02.1
+  make
+  make install
+Installing optcomp.1.6.
+Building ounit.2.0.0:
+  make build
+  make install
+Installing ounit.2.0.0.
+Building re.1.2.2:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing re.1.2.2.
+Copying ~/.opam/repo/default/packages/ssl/ssl.0.4.7/files/pkgconfigure to ~/.opam/4.02.1/build/ssl.0.4.7/
+Building ssl.0.4.7:
+  ./configure --prefix /home/opam/.opam/4.02.1
+  make
+  make install
+Installing ssl.0.4.7.
+Building stringext.1.0.0:
+  ocaml setup.ml -configure
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing stringext.1.0.0.
+Building type_conv.112.01.00:
+  make
+  make install
+Installing type_conv.112.01.00.
+Building fieldslib.109.20.03:
+  make
+  make install
+Installing fieldslib.109.20.03.
+Building lwt.2.4.5:
+  ./configure --disable-libev --disable-react --enable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib
+  make build
+  make install
+Installing lwt.2.4.5.
+Building ocplib-endian.0.4:
+  ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.02.1
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing ocplib-endian.0.4.
+Building sexplib.112.01.00:
+  ./configure --enable-syntax
+  make
+  make install
+Installing sexplib.112.01.00.
+Building cstruct.1.4.0:
+  make
+  make install
+Installing cstruct.1.4.0.
+Building ipaddr.2.5.0:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
+  make build
+  make install
+Installing ipaddr.2.5.0.
+Building uri.1.7.2:
+  ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
+  ocaml setup.ml -build
+  ocaml setup.ml -install
+Installing uri.1.7.2.
+Building conduit.0.6.0:
+  make
+  make install
+Installing conduit.0.6.0.
+Building cohttp.0.12.0:
+  make PREFIX=/home/opam/.opam/4.02.1
+  make PREFIX=/home/opam/.opam/4.02.1 install
+Installing cohttp.0.12.0.
+++ opam list --depends-on cohttp --rec -s
++ deps='bt cowabloga facebook-sdk github iocaml irmin merge-queues merge-ropes message-switch mirage-http mirage-http-unix mirage-www ojs-base opam-sync-github-prs opium slacko sociaml-oauth-client sociaml-tumblr-api vhd-tool websocket xapi xapi-forkexecd xapi-idl xapi-libs-transitional xapi-netdev xapi-networkd xapi-rrd-transport xapi-rrdd xapi-rrdd-plugin xapi-squeezed xapi-tapctl xapi-xenops xapi-xenops-cli xapi-xenopsd xe xe-unikernel-upload xen-api-client '
+++ opam config env
++ eval 'CAML_LD_LIBRARY_PATH="/home/opam/.opam/4.02.1/lib/stublibs";' export 'CAML_LD_LIBRARY_PATH;' 'MANPATH="/home/opam/.opam/4.02.1/man:";' export 'MANPATH;' 'MAKELEVEL="";' export 'MAKELEVEL;' 'MAKEFLAGS="";' export 'MAKEFLAGS;' 'PERL5LIB="/home/opam/.opam/4.02.1/lib/perl5";' export 'PERL5LIB;' 'OCAML_TOPLEVEL_PATH="/home/opam/.opam/4.02.1/lib/toplevel";' export 'OCAML_TOPLEVEL_PATH;' 'PATH="/home/opam/.opam/4.02.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";' export 'PATH;'
+++ CAML_LD_LIBRARY_PATH=/home/opam/.opam/4.02.1/lib/stublibs
+++ export CAML_LD_LIBRARY_PATH
+++ MANPATH=/home/opam/.opam/4.02.1/man:
+++ export MANPATH
+++ MAKELEVEL=
+++ export MAKELEVEL
+++ MAKEFLAGS=
+++ export MAKEFLAGS
+++ PERL5LIB=/home/opam/.opam/4.02.1/lib/perl5
+++ export PERL5LIB
+++ OCAML_TOPLEVEL_PATH=/home/opam/.opam/4.02.1/lib/toplevel
+++ export OCAML_TOPLEVEL_PATH
+++ PATH=/home/opam/.opam/4.02.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export PATH
++ opam install bt cowabloga facebook-sdk github iocaml irmin merge-queues merge-ropes message-switch mirage-http mirage-http-unix mirage-www ojs-base opam-sync-github-prs opium slacko sociaml-oauth-client sociaml-tumblr-api vhd-tool websocket xapi xapi-forkexecd xapi-idl xapi-libs-transitional xapi-netdev xapi-networkd xapi-rrd-transport xapi-rrdd xapi-rrdd-plugin xapi-squeezed xapi-tapctl xapi-xenops xapi-xenops-cli xapi-xenopsd xe xe-unikernel-upload xen-api-client
+Your request can't be satisfied:
+  - No package matches ojs-base.
+
+No solution found, exiting
