@@ -33,11 +33,11 @@ Loaded plugins: fastestmirror
 extras                                                   | 3.4 kB     00:00     
 home_ocaml                                               | 1.2 kB     00:00     
 updates                                                  | 3.4 kB     00:00     
-updates/7/x86_64/primary_d 0% [                 ]  0.0 B/s |    0 B   --:-- ETA updates/7/x86_64/primary_d 3% [-                ]  0.0 B/s | 169 kB   --:-- ETA updates/7/x86_64/primary_d 13% [==              ] 564 kB/s | 572 kB   00:06 ETA updates/7/x86_64/primary_d 30% [====-           ] 667 kB/s | 1.3 MB   00:04 ETA updates/7/x86_64/primary_d 59% [=========-      ] 871 kB/s | 2.5 MB   00:01 ETA updates/7/x86_64/primary_d 77% [============    ] 971 kB/s | 3.2 MB   00:00 ETA updates/7/x86_64/primary_db                                | 4.2 MB   00:02     
+updates/7/x86_64/primary_d 0% [                 ]  0.0 B/s |    0 B   --:-- ETA updates/7/x86_64/primary_d 5% [-                ]  0.0 B/s | 222 kB   --:-- ETA updates/7/x86_64/primary_d 10% [=-              ] 383 kB/s | 462 kB   00:09 ETA updates/7/x86_64/primary_d 15% [==              ] 399 kB/s | 662 kB   00:09 ETA updates/7/x86_64/primary_d 19% [===             ] 405 kB/s | 818 kB   00:08 ETA updates/7/x86_64/primary_d 22% [===-            ] 410 kB/s | 974 kB   00:08 ETA updates/7/x86_64/primary_d 28% [====            ] 429 kB/s | 1.2 MB   00:07 ETA updates/7/x86_64/primary_d 33% [=====           ] 452 kB/s | 1.4 MB   00:06 ETA updates/7/x86_64/primary_d 39% [======          ] 473 kB/s | 1.6 MB   00:05 ETA updates/7/x86_64/primary_d 45% [=======         ] 492 kB/s | 1.9 MB   00:04 ETA updates/7/x86_64/primary_d 48% [=======-        ] 491 kB/s | 2.0 MB   00:04 ETA updates/7/x86_64/primary_d 52% [========        ] 491 kB/s | 2.2 MB   00:04 ETA updates/7/x86_64/primary_d 55% [========-       ] 484 kB/s | 2.3 MB   00:03 ETA updates/7/x86_64/primary_d 58% [=========       ] 481 kB/s | 2.4 MB   00:03 ETA updates/7/x86_64/primary_d 62% [==========      ] 487 kB/s | 2.6 MB   00:03 ETA updates/7/x86_64/primary_d 65% [==========-     ] 484 kB/s | 2.7 MB   00:03 ETA updates/7/x86_64/primary_d 69% [===========     ] 481 kB/s | 2.9 MB   00:02 ETA updates/7/x86_64/primary_d 72% [===========-    ] 477 kB/s | 3.0 MB   00:02 ETA updates/7/x86_64/primary_d 75% [============    ] 476 kB/s | 3.2 MB   00:02 ETA updates/7/x86_64/primary_d 78% [============-   ] 473 kB/s | 3.3 MB   00:01 ETA updates/7/x86_64/primary_d 82% [=============   ] 474 kB/s | 3.4 MB   00:01 ETA updates/7/x86_64/primary_d 85% [=============-  ] 471 kB/s | 3.6 MB   00:01 ETA updates/7/x86_64/primary_d 87% [==============  ] 460 kB/s | 3.7 MB   00:01 ETA updates/7/x86_64/primary_d 90% [==============  ] 455 kB/s | 3.8 MB   00:00 ETA updates/7/x86_64/primary_d 93% [=============== ] 456 kB/s | 3.9 MB   00:00 ETA updates/7/x86_64/primary_d 97% [===============-] 458 kB/s | 4.1 MB   00:00 ETA updates/7/x86_64/primary_db                                | 4.2 MB   00:08     
 Loading mirror speeds from cached hostfile
- * base: ftpmirror.your.org
- * extras: ftpmirror.your.org
- * updates: centos.chi.host-engine.com
+ * base: centos.mirrors.tds.net
+ * extras: mirrors.gigenet.com
+ * updates: mirror.steadfast.net
 Package 1:gmp-5.1.1-5.el7.x86_64 already installed and latest version
 Resolving Dependencies
 --> Running transaction check
@@ -61,10 +61,10 @@ Install  2 Packages
 Total download size: 197 k
 Installed size: 361 k
 Downloading packages:
-(1/2): libffi-devel-3.0.13-11.el7.x86_64.rpm               |  22 kB   00:00     
-(2/2): gmp-devel-5.1.1-5.e 11% [=-              ]  0.0 B/s |  22 kB   --:-- ETA (2/2): gmp-devel-5.1.1-5.el7.x86_64.rpm                    | 175 kB   00:00     
+(1/2): gmp-devel-5.1.1-5.el7.x86_64.rpm                    | 175 kB   00:00     
+(2/2): libffi-devel-3.0.13 88% [==============  ]  0.0 B/s | 175 kB   --:-- ETA (2/2): libffi-devel-3.0.13-11.el7.x86_64.rpm               |  22 kB   00:00     
 --------------------------------------------------------------------------------
-Total                                              311 kB/s | 197 kB  00:00     
+Total                                              381 kB/s | 197 kB  00:00     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -132,13 +132,13 @@ The following actions will be performed:
 Copying ~/.opam/repo/default/packages/conf-gmp/conf-gmp.1/files/test.c to ~/.opam/4.01.0/build/conf-gmp.1/
 Building conf-gmp.1:
   cc -c test.c
-Building cmdliner.0.9.5:
-  ocaml pkg/git.ml
-  ocaml pkg/build.ml native=true native-dynlink=true
+Installing conf-gmp.1.
 Building ctypes.0.3:
   make
   make install
-Installing conf-gmp.1.
+Building cmdliner.0.9.5:
+  ocaml pkg/git.ml
+  ocaml pkg/build.ml native=true native-dynlink=true
 Building lwt.2.4.5:
   ./configure --disable-libev --disable-react --disable-ssl --enable-unix --enable-extra --enable-preemptive --disable-glib
   make build
@@ -177,11 +177,11 @@ Building zarith.1.3:
   make
   make install
 Installing zarith.1.3.
+Installing ocplib-endian.0.4.
 Building sexplib.111.25.00:
   ./configure --enable-syntax
   make
   make install
-Installing ocplib-endian.0.4.
 Installing lwt.2.4.5.
 Installing sexplib.111.25.00.
 Building cstruct.1.4.0:
@@ -193,9 +193,6 @@ Building ipaddr.2.5.0:
   make install
 Installing ipaddr.2.5.0.
 Installing cstruct.1.4.0.
-Building io-page.1.1.1:
-  make
-  make install
 Building asn1-combinators.0.1.1:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
@@ -204,6 +201,9 @@ Building nocrypto.0.2.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
+Building io-page.1.1.1:
+  make
+  make install
 Installing io-page.1.1.1.
 Building mirage-types.2.0.0:
   make install-types
