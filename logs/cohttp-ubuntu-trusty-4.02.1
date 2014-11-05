@@ -183,17 +183,20 @@ Installing cohttp.0.12.0.
 + opam install bt cowabloga facebook-sdk github iocaml irmin merge-queues merge-ropes message-switch mirage-http mirage-http-unix mirage-www ojs-base opam-sync-github-prs opium slacko sociaml-oauth-client sociaml-tumblr-api vhd-tool websocket xapi xapi-forkexecd xapi-idl xapi-libs-transitional xapi-netdev xapi-networkd xapi-rrd-transport xapi-rrdd xapi-rrdd-plugin xapi-squeezed xapi-tapctl xapi-xenops xapi-xenops-cli xapi-xenopsd xe xe-unikernel-upload xen-api-client
 The following dependencies couldn't be met:
   - mirage-www[33m -> [mcohttp >= 0.12.0[33m -> [mconduit >= 0.6.0
+  - mirage-www[33m -> [mcow < 1.0.0
   - mirage-www[33m -> [mcowabloga = 0.0.3[33m -> [mcohttp < 0.10.0
   - mirage-www[33m -> [mmirage-console-unix >= 1.0.0
-  - mirage-www[33m -> [mtcpip[33m -> [mmirage-net-unix >= 1.1.0
-  - mirage-www[33m -> [mtcpip[33m -> [mmirage-console
   - mirage-http-unix[33m -> [mmirage-tcpip-unix >= 0.9.5[33m -> [m(mirage-net-unix < 1.1.0 & mirage-net-unix >= 1.0.0)
-  - merge-ropes[33m -> [mirmin = 0.8.3[33m -> [mgit = 1.2.0[33m -> [mconduit = 0.5.1
+  - mirage-http[33m -> [mcohttp >= 0.12.0[33m -> [mconduit >= 0.6.0
+  - mirage-http[33m -> [mtcpip >= 1.1.0[33m -> [mmirage-net-unix >= 1.1.0
+  - mirage-http[33m -> [mtcpip >= 1.1.0[33m -> [mmirage-console
+  - merge-queues[33m -> [mirmin = 0.8.3[33m -> [mgit = 1.2.0[33m -> [mconduit = 0.5.1
   - bt[33m -> [mcohttp >= 0.11.2[33m -> [mconduit >= 0.6.0
 Your request can't be satisfied:
   - Conflicting version constraints for cohttp
   - Conflicting version constraints for conduit
   - Conflicting version constraints for mirage-net-unix
+  - cow<1.0.0 is not available because it requires OCaml < 4.02.0.
   - mirage-console.2.0.0 is in conflict with mirage-console-unix.1.0.0
 
 No solution found, exiting

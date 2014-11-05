@@ -77,8 +77,8 @@ The following actions will be performed:
 
 [36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
 [[32masn1-combinators.0.1.1[m] Downloading https://github.com/mirleft/ocaml-asn1-combinators/archive/0.1.1.tar.gz
-[[32mcmdliner.0.9.5[m] Downloading http://erratique.ch/software/cmdliner/releases/cmdliner-0.9.5.tbz
 [[32mcrunch.1.3.0[m] Downloading https://github.com/mirage/ocaml-crunch/archive/v1.3.0.tar.gz
+[[32mcmdliner.0.9.5[m] Downloading http://erratique.ch/software/cmdliner/releases/cmdliner-0.9.5.tbz
 [[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
 [[32mctypes.0.3.3[m] Downloading https://github.com/ocamllabs/ocaml-ctypes/archive/0.3.3.tar.gz
 [[32mio-page.1.1.1[m] Downloading https://github.com/mirage/io-page/archive/v1.1.1.tar.gz
@@ -106,11 +106,11 @@ Building conf-gmp.1:
 Building cmdliner.0.9.5:
   ocaml pkg/git.ml
   ocaml pkg/build.ml native=true native-dynlink=true
-Installing conf-gmp.1.
 Building optcomp.1.6:
   ./configure --prefix /home/opam/.opam/4.02.1
   make
   make install
+Installing conf-gmp.1.
 Building ounit.2.0.0:
   make build
   make install
@@ -151,12 +151,12 @@ Building zarith.1.3:
   ./configure
   make
   make install
-Installing ctypes.0.3.3.
+Installing zarith.1.3.
 Building sexplib.112.01.00:
   ./configure --enable-syntax
   make
   make install
-Installing zarith.1.3.
+Installing ctypes.0.3.3.
 Installing sexplib.112.01.00.
 Building ipaddr.2.5.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.02.1
@@ -182,12 +182,12 @@ Building nocrypto.0.2.0:
 Installing io-page.1.1.1.
 Building mirage-types.2.0.0:
   make install-types
-Installing asn1-combinators.0.1.1.
 Installing mirage-types.2.0.0.
 Building mirage.2.0.0:
   ./configure --bindir /home/opam/.opam/4.02.1/bin
   make
   make install
+Installing asn1-combinators.0.1.1.
 Installing mirage.2.0.0.
 Installing nocrypto.0.2.0.
 Building x509.0.2.0:
@@ -250,7 +250,7 @@ The following actions will be performed:
  - install   mirage-unix.1.1.0
  - install   mirage-entropy-unix.0.1.6
  - install   mirage-console.2.0.0
- - install   tcpip.2.0.0
+ - install   tcpip.2.0.1
 === [33m10[m to install ===
 
 [36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
@@ -261,7 +261,7 @@ The following actions will be performed:
 [[32mmirage-net-unix.1.1.1[m] Downloading https://github.com/mirage/mirage-net-unix/archive/v1.1.1.tar.gz
 [[32mmirage-unix.1.1.0[m] Downloading https://github.com/mirage/mirage-platform/archive/v1.1.0.tar.gz
 [[32mshared-memory-ring.1.1.0[m] Downloading https://github.com/mirage/shared-memory-ring/archive/1.1.0.tar.gz
-[[32mtcpip.2.0.0[m] Downloading https://github.com/mirage/mirage-tcpip/archive/v2.0.0.tar.gz
+[[32mtcpip.2.0.1[m] Downloading https://github.com/mirage/mirage-tcpip/archive/v2.0.1.tar.gz
 [[32mtuntap.1.0.0[m] Downloading https://github.com/mirage/ocaml-tuntap/archive/v1.0.0.tar.gz
 
 [36m=-=-[m [01mInstalling packages[m [36m=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
@@ -298,10 +298,10 @@ Building mirage-entropy-unix.0.1.6:
   make unix-build
   make unix-install
 Installing mirage-entropy-unix.0.1.6.
-Building tcpip.2.0.0:
+Building tcpip.2.0.1:
   make
   make install
-Installing tcpip.2.0.0.
+Installing tcpip.2.0.1.
 [32mtls-server[m  [36mGenerating:[m main.ml
 + mirage build
 [32mMirage[m      [36mUsing scanned config file:[m config.ml
