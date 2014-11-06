@@ -33,11 +33,11 @@ Loaded plugins: fastestmirror
 extras                                                   | 3.4 kB     00:00     
 home_ocaml                                               | 1.2 kB     00:00     
 updates                                                  | 3.4 kB     00:00     
-updates/7/x86_64/primary_d 0% [                 ]  0.0 B/s |    0 B   --:-- ETA updates/7/x86_64/primary_d 4% [-                ]  0.0 B/s | 179 kB   --:-- ETA updates/7/x86_64/primary_d 11% [=-              ] 440 kB/s | 495 kB   00:08 ETA updates/7/x86_64/primary_d 25% [====            ] 526 kB/s | 1.1 MB   00:06 ETA updates/7/x86_64/primary_d 49% [=======-        ] 690 kB/s | 2.0 MB   00:03 ETA updates/7/x86_64/primary_d 78% [============-   ] 900 kB/s | 3.3 MB   00:01 ETA updates/7/x86_64/primary_db                                | 4.2 MB   00:02     
+updates/7/x86_64/primary_d 0% [                 ]  0.0 B/s |    0 B   --:-- ETA updates/7/x86_64/primary_d 28% [====-           ]  0.0 B/s | 1.2 MB   --:-- ETA updates/7/x86_64/primary_db                                | 4.2 MB   00:00     
 Loading mirror speeds from cached hostfile
- * base: bay.uchicago.edu
- * extras: centos.chi.host-engine.com
- * updates: centos.corenetworks.net
+ * base: centos.chi.host-engine.com
+ * extras: mirror.cs.pitt.edu
+ * updates: mirrors.gigenet.com
 Resolving Dependencies
 --> Running transaction check
 ---> Package openssl-devel.x86_64 1:1.0.1e-34.el7_0.6 will be installed
@@ -96,15 +96,15 @@ Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 (2/10): krb5-devel-1.11.3- 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/10): libcom_err-devel-1.42.9-4.el7.x86_64.rpm           |  30 kB   00:00     
 (2/10): libverto-devel-0.2.5-4.el7.x86_64.rpm              |  12 kB   00:00     
 (3/10): libselinux-devel-2.2.2-6.el7.x86_64.rpm            | 174 kB   00:00     
-(4/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
-(6/10): krb5-devel-1.11.3- 7% [=                ]  0.0 B/s | 286 kB   --:-- ETA (5/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
+(4/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:00     
+(5/10): libsepol-devel-2.1.9-3.el7.x86_64.rpm              |  71 kB   00:00     
 (6/10): zlib-devel-1.2.7-13.el7.x86_64.rpm                 |  49 kB   00:00     
-(8/10): krb5-devel-1.11.3- 22% [===-            ] 749 kB/s | 813 kB   00:03 ETA (9/10): openssl-devel-1.0. 32% [=====           ] 768 kB/s | 1.2 MB   00:03 ETA (9/10): openssl-devel-1.0. 49% [=======-        ] 839 kB/s | 1.7 MB   00:02 ETA (7/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm         | 1.2 MB   00:01     
-(10/10): openssl-libs-1.0. 82% [=============   ] 1.0 MB/s | 2.9 MB   00:00 ETA (8/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm          | 941 kB   00:01     
-(9/10): keyutils-libs-deve 83% [=============   ] 960 kB/s | 2.9 MB   00:00 ETA (10/10): krb5-devel-1.11.3 83% [=============   ] 866 kB/s | 2.9 MB   00:00 ETA (10/10): krb5-devel-1.11.3 83% [=============   ] 811 kB/s | 3.0 MB   00:00 ETA (10/10): krb5-devel-1.11.3 83% [=============   ] 754 kB/s | 3.0 MB   00:00 ETA (9/10): keyutils-libs-deve 84% [=============   ] 673 kB/s | 3.0 MB   00:00 ETA (9/10): keyutils-libs-deve 84% [=============   ] 580 kB/s | 3.0 MB   00:00 ETA (10/10): krb5-devel-1.11.3 84% [=============   ] 544 kB/s | 3.0 MB   00:01 ETA (10/10): krb5-devel-1.11.3 84% [=============   ] 468 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 84% [=============   ] 440 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 85% [=============-  ] 409 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 85% [=============-  ] 377 kB/s | 3.0 MB   00:01 ETA (10/10): krb5-devel-1.11.3 85% [=============-  ] 352 kB/s | 3.0 MB   00:01 ETA (10/10): krb5-devel-1.11.3 85% [=============-  ] 330 kB/s | 3.0 MB   00:01 ETA (10/10): krb5-devel-1.11.3 86% [=============-  ] 309 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 86% [=============-  ] 285 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 86% [=============-  ] 264 kB/s | 3.0 MB   00:01 ETA (9/10): keyutils-libs-deve 86% [=============-  ] 245 kB/s | 3.0 MB   00:02 ETA (10/10): krb5-devel-1.11.3 86% [=============-  ] 227 kB/s | 3.0 MB   00:02 ETA (10/10): krb5-devel-1.11.3 86% [=============-  ] 213 kB/s | 3.0 MB   00:02 ETA (10/10): krb5-devel-1.11.3 86% [=============-  ] 200 kB/s | 3.1 MB   00:02 ETA (9/10): keyutils-libs-devel-1.5.8-3.el7.x86_64.rpm         |  37 kB   00:10     
-(10/10): krb5-devel-1.11.3 86% [=============-  ] 176 kB/s | 3.1 MB   00:02 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 163 kB/s | 3.1 MB   00:02 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 145 kB/s | 3.1 MB   00:03 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 135 kB/s | 3.1 MB   00:03 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 122 kB/s | 3.1 MB   00:03 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 112 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 87% [=============-  ] 103 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 87% [==============  ]  92 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 88% [==============  ]  89 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 88% [==============  ]  87 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 88% [==============  ]  81 kB/s | 3.1 MB   00:04 ETA (10/10): krb5-devel-1.11.3 88% [==============  ]  76 kB/s | 3.1 MB   00:05 ETA (10/10): krb5-devel-1.11.3 88% [==============  ]  72 kB/s | 3.1 MB   00:05 ETA (10/10): krb5-devel-1.11.3 89% [==============  ]  68 kB/s | 3.1 MB   00:05 ETA (10/10): krb5-devel-1.11.3 91% [==============- ]  77 kB/s | 3.2 MB   00:04 ETA (10/10): krb5-devel-1.11.3 92% [==============- ]  84 kB/s | 3.3 MB   00:03 ETA (10/10): krb5-devel-1.11.3 94% [=============== ]  91 kB/s | 3.3 MB   00:02 ETA (10/10): krb5-devel-1.11.3 96% [=============== ] 100 kB/s | 3.4 MB   00:01 ETA (10/10): krb5-devel-1.11.3 99% [===============-] 114 kB/s | 3.5 MB   00:00 ETA (10/10): krb5-devel-1.11.3-49.el7.x86_64.rpm               | 611 kB   00:18     
+(8/10): openssl-devel-1.0. 10% [=-              ]  0.0 B/s | 373 kB   --:-- ETA (7/10): openssl-libs-1.0.1e-34.el7_0.6.x86_64.rpm          | 941 kB   00:00     
+(9/10): openssl-devel-1.0. 68% [==========-     ] 2.7 MB/s | 2.4 MB   00:00 ETA (8/10): krb5-devel-1.11.3-49.el7.x86_64.rpm                | 611 kB   00:01     
+(9/10): pcre-devel-8.32-12.el7.x86_64.rpm                  | 477 kB   00:00     
+(10/10): openssl-devel-1.0.1e-34.el7_0.6.x86_64.rpm        | 1.2 MB   00:00     
 --------------------------------------------------------------------------------
-Total                                              198 kB/s | 3.5 MB  00:18     
+Total                                              2.2 MB/s | 3.5 MB  00:01     
 Running transaction check
 Running transaction test
 Transaction test succeeded
