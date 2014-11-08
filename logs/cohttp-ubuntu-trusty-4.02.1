@@ -13,9 +13,6 @@ Updating ~/.opam/packages/ ...
 The following packages have been UPDATED upstream:
  - camlp4.4.02.1+1
  - ocamlfind.1.5.5
-[31m[ERROR][m Package conduit.0.6.1 has inconsistent 'version: "0.6.0"' field.
-[31m[ERROR][m At ~/.opam/repo/mirage/packages/conduit/conduit.0.6.1/opam
-[33m[WARNING][m Errors while parsing conduit.0.6.1 OPAM file, skipping.
 + opam update -u
 [[1;34mmirage[m] Fetching git://github.com/mirage/mirage-dev
 [[1;34mdefault[m] Synchronizing with /home/opam/opam-repository
@@ -23,9 +20,6 @@ Updating ~/.opam/repo/compiler-index ...
 Updating ~/.opam/compilers/ ...
 Updating ~/.opam/repo/package-index ...
 Updating ~/.opam/packages/ ...
-[31m[ERROR][m Package conduit.0.6.1 has inconsistent 'version: "0.6.0"' field.
-[31m[ERROR][m At ~/.opam/repo/mirage/packages/conduit/conduit.0.6.1/opam
-[33m[WARNING][m Errors while parsing conduit.0.6.1 OPAM file, skipping.
 Everything as up-to-date as possible (run with --verbose to show unavailable upgrades).
 + opam installext lwt ssl cohttp
 ++ opam install lwt ssl cohttp -e ubuntu
@@ -70,13 +64,13 @@ The following actions will be performed:
  - install   uri.1.7.2                             [required by cohttp]
  - install   ipaddr.2.5.0                          [required by conduit]
  - install   cstruct.1.4.0                         [required by conduit]
- - install   conduit.0.6.0                         [required by cohttp]
+ - install   conduit.0.6.1                         [required by cohttp]
  - install   cohttp.0.12.0
 === [33m17[m to install ===
 
 [36m=-=-[m [01mSynchronizing package archives[m [36m-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=[m
 [[32mcohttp.0.12.0[m] Downloading https://github.com/mirage/ocaml-cohttp/archive/v0.12.0.tar.gz
-[[32mconduit.0.6.0[m] Downloading https://github.com/mirage/ocaml-conduit/archive/v0.6.0.tar.gz
+[[32mconduit.0.6.1[m] Downloading https://github.com/mirage/ocaml-conduit/archive/v0.6.1.tar.gz
 [[32mcstruct.1.4.0[m] Downloading https://github.com/mirage/ocaml-cstruct/archive/v1.4.0.tar.gz
 [[32mfieldslib.109.20.03[m] Downloading https://ocaml.janestreet.com/ocaml-core/109.20.00/individual/fieldslib-109.20.03.tar.gz
 [[32mipaddr.2.5.0[m] Downloading https://github.com/mirage/ocaml-ipaddr/archive/2.5.0.tar.gz
@@ -160,10 +154,10 @@ Building uri.1.7.2:
   ocaml setup.ml -build
   ocaml setup.ml -install
 Installing uri.1.7.2.
-Building conduit.0.6.0:
+Building conduit.0.6.1:
   make
   make install
-Installing conduit.0.6.0.
+Installing conduit.0.6.1.
 Building cohttp.0.12.0:
   make PREFIX=/home/opam/.opam/4.02.1
   make PREFIX=/home/opam/.opam/4.02.1 install
@@ -193,7 +187,7 @@ The following dependencies couldn't be met:
   - mirage-www[33m -> [mcowabloga = 0.0.3[33m -> [mcohttp < 0.10.0
   - mirage-www[33m -> [mmirage-console-unix >= 1.0.0
   - mirage-http-unix[33m -> [mmirage-tcpip-unix >= 0.9.5[33m -> [m(mirage-net-unix < 1.1.0 & mirage-net-unix >= 1.0.0)
-  - mirage-http[33m -> [mcohttp >= 0.12.0[33m -> [mconduit >= 0.6.0
+  - mirage-http[33m -> [mmirage-conduit[33m -> [mconduit >= 0.6.0
   - mirage-http[33m -> [mtcpip >= 1.1.0[33m -> [mmirage-net-unix >= 1.1.0
   - mirage-http[33m -> [mtcpip >= 1.1.0[33m -> [mmirage-console
   - merge-queues[33m -> [mirmin = 0.8.3[33m -> [mgit = 1.2.0[33m -> [mconduit = 0.5.1
