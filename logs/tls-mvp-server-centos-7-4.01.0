@@ -34,11 +34,11 @@ Loaded plugins: fastestmirror
 home_ocaml                                               | 1.2 kB     00:00     
 updates                                                  | 3.4 kB     00:00     
 (2/2): updates/7/x86_64/pr 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/2): extras/7/x86_64/primary_db                          |  35 kB   00:00     
-(2/2): updates/7/x86_64/pr 17% [==-             ]  0.0 B/s | 845 kB   --:-- ETA (2/2): updates/7/x86_64/pr 35% [=====-          ] 1.3 MB/s | 1.7 MB   00:02 ETA (2/2): updates/7/x86_64/pr 46% [=======         ] 1.3 MB/s | 2.2 MB   00:01 ETA (2/2): updates/7/x86_64/pr 56% [=========       ] 1.4 MB/s | 2.7 MB   00:01 ETA (2/2): updates/7/x86_64/pr 77% [============    ] 1.5 MB/s | 3.7 MB   00:00 ETA (2/2): updates/7/x86_64/pr 94% [=============== ] 1.5 MB/s | 4.5 MB   00:00 ETA (2/2): updates/7/x86_64/primary_db                         | 4.7 MB   00:02     
+(2/2): updates/7/x86_64/pr 41% [======-         ]  0.0 B/s | 2.0 MB   --:-- ETA (2/2): updates/7/x86_64/pr 94% [=============== ] 4.0 MB/s | 4.5 MB   00:00 ETA (2/2): updates/7/x86_64/primary_db                         | 4.7 MB   00:01     
 Loading mirror speeds from cached hostfile
- * base: mirror.sanctuaryhost.com
- * extras: mirror.anl.gov
- * updates: mirror.oss.ou.edu
+ * base: mirror.cc.columbia.edu
+ * extras: mirror.team-cymru.org
+ * updates: mirror.symnds.com
 Package 1:gmp-5.1.1-5.el7.x86_64 already installed and latest version
 Resolving Dependencies
 --> Running transaction check
@@ -65,7 +65,7 @@ Downloading packages:
 (2/2): libffi-devel-3.0.13 0% [                 ]  0.0 B/s |    0 B   --:-- ETA (1/2): libffi-devel-3.0.13-11.el7.x86_64.rpm               |  22 kB   00:00     
 (2/2): gmp-devel-5.1.1-5.el7.x86_64.rpm                    | 175 kB   00:00     
 --------------------------------------------------------------------------------
-Total                                              350 kB/s | 197 kB  00:00     
+Total                                              321 kB/s | 197 kB  00:00     
 Running transaction check
 Running transaction test
 Transaction test succeeded
@@ -158,31 +158,31 @@ Building re.1.2.2:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
+Installing ounit.2.0.0.
 Installing re.1.2.2.
 Building type_conv.111.13.00:
   make
   make install
-Installing ounit.2.0.0.
 Building crunch.1.3.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
 Installing type_conv.111.13.00.
+Installing crunch.1.3.0.
 Building ocplib-endian.0.4:
   ocaml setup.ml -configure --disable-debug --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
-Installing crunch.1.3.0.
 Building zarith.1.3:
   ./configure
   make
   make install
 Installing zarith.1.3.
-Installing ocplib-endian.0.4.
 Building sexplib.111.25.00:
   ./configure --enable-syntax
   make
   make install
+Installing ocplib-endian.0.4.
 Installing lwt.2.4.5.
 Installing sexplib.111.25.00.
 Building cstruct.1.4.0:
@@ -194,13 +194,13 @@ Building ipaddr.2.5.0:
   make install
 Installing ipaddr.2.5.0.
 Installing cstruct.1.4.0.
+Building io-page.1.1.1:
+  make
+  make install
 Building asn1-combinators.0.1.1:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
   ocaml setup.ml -install
-Building io-page.1.1.1:
-  make
-  make install
 Building nocrypto.0.2.0:
   ocaml setup.ml -configure --prefix /home/opam/.opam/4.01.0
   ocaml setup.ml -build
