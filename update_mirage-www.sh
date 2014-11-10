@@ -57,32 +57,26 @@ then
   # To use hub we first clone mirage-www, then we fork it using hub, and we
   # obtain a "remote" to GITHUB_USER's fork of mirage-www.
   git clone git://github.com/mirage/mirage-www
-  # FIXME need to "cd" to mirage-www to run "hub fork"?
-  # FIXME check that clone was successful -- if not then die
+  cd mirage-www
   hub fork
-  # FIXME check that fork was successful -- if not then die
+else
+  cd mirage-www
 fi
-
-cd mirage-www
 
 echo "We seem to have a copy of ${GITHUB_USER}'s fork of mirage-www.
 Making sure it's up to date."
-git pull
-# FIXME check that pull was successful -- if not then die, otherwise we'll be
-# working with stale data. -- could use parameter to "sh" for this, I think --
-# but would this fail at *any* non-zero exit status? That would be buggered up
-# by "diff" below, for example.
-# FIXME check if we've already set remote upstream
-git checkout ${GITHUB_USER} master
+git fetch origin master
+git checkout master
 # Bring bactrian's fork up to date.
 # This should always be a fast-forward merge -- should never fail.
 git merge origin/master
+git push ${GITHUB_USER}
 
 # Compare mirage-www/tmpl/wiki/is_mirage_broken.md with logs/README.md
 # (modulo timestamp). Only proceed if something's changed.
-# FIXME check if "diff" failure interferes with sh -x.
-diff -q <(sed -e '1d' ../logs/README.md) <(sed -e '1d' tmpl/wiki/is_mirage_broken.md)
-if [ $? -eq 1 ]
+CHECK_DIFF=$(diff -q <(sed -e '1d' ../logs/README.md) \
+  <(sed -e '1d' tmpl/wiki/is_mirage_broken.md))
+if [[ ${CHECK_DIFF} =~ "differ" ]]
 then
   # Make sure that TMPFILE is a not-yet-existing file
   TMPFILE=
@@ -117,7 +111,6 @@ then
   hub pull-request -m "${MSG}" \
     -b mirage/mirage-www:master \
     -h ${GITHUB_USER}:master
-  # FIXME check outcome of pull request?
 fi
 
 cd ..
