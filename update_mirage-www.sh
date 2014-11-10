@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -xe
 #
 # Update the sources of the openmirage.org site with the latest build info from
 # is-mirage-broken. Generates a PR to mirage/mirage-www (from which the
@@ -12,21 +12,25 @@
 # - The "hub" tool is used here to interact with GitHub.
 # - We rely on "hub" to have access to user credentials via the GITHUB_USER and
 #   GITHUB_PASSWORD environment variables.
+# - Credentials are passed to "git" differently -- here I assume that we're
+#   using GIT_ASKPASS.
+#   FIXME would be useful to use single source of credentials -- such as RSA
+#   keys.
 # - We rely on IS_MIRAGE_BROKEN_DIR to contain the path within which we'll keep
 #   a clone of GITHUB_USER's fork of mirage/mirage-www.
 
 EXPECTED_GITHUB_USER=bactrian
 
-if [ ! ${GITHUB_USER} == ${EXPECTED_GITHUB_USER} ]
+if [ ! "${GITHUB_USER}" == "${EXPECTED_GITHUB_USER}" ]
 then
   echo "Expecting GITHUB_USER to be set to ${EXPECTED_GITHUB_USER}." >&2
   exit 1
 fi
 
-if [ -z ${GITHUB_PASSWORD} ]
+if [ -z "${GITHUB_PASSWORD}" || -z "${GIT_ASKPASS}" ]
 then
-  echo "Expecting GITHUB_PASSWORD to be set to the password of ${GITHUB_USER}'s
-  GitHub account." >&2
+  echo "Expecting GITHUB_PASSWORD and GIT_ASKPASS to be set to the password of
+  ${GITHUB_USER}'s GitHub account." >&2
   exit 1
 fi
 
@@ -40,7 +44,7 @@ then
   exit 1
 fi
 
-cd ${IS_MIRAGE_BROKEN_DIR}
+cd "${IS_MIRAGE_BROKEN_DIR}"
 
 if [ -z "$(which hub)" ]
 then
@@ -58,7 +62,8 @@ then
   # obtain a "remote" to GITHUB_USER's fork of mirage-www.
   git clone git://github.com/mirage/mirage-www
   cd mirage-www
-  hub fork
+  hub fork --no-remote
+  git remote add "${GITHUB_USER}" "https://${GITHUB_USER}@github.com/mirage/mirage-www"
 else
   cd mirage-www
 fi
@@ -70,19 +75,25 @@ git checkout master
 # Bring bactrian's fork up to date.
 # This should always be a fast-forward merge -- should never fail.
 git merge origin/master
-git push ${GITHUB_USER}
+git push "${GITHUB_USER}"
 
 # Compare mirage-www/tmpl/wiki/is_mirage_broken.md with logs/README.md
 # (modulo timestamp). Only proceed if something's changed.
+# NOTE diff uses exit status 1 to indicate that the two files differ, but
+#  a non-zero exit status will cause the whole script to fall (because of -e).
+#  We avoid this by using the "&& true" suffix below.
 CHECK_DIFF=$(diff -q <(sed -e '1d' ../logs/README.md) \
-  <(sed -e '1d' tmpl/wiki/is_mirage_broken.md))
-if [[ ${CHECK_DIFF} =~ "differ" ]]
+  <(sed -e '1d' tmpl/wiki/is_mirage_broken.md)) && true
+if [[ ! ${CHECK_DIFF} =~ "differ" ]]
 then
+  echo "Build statuses haven't changed since last time we ran."
+else
+  echo "Current build statuses differ from last time we ran."
   # Make sure that TMPFILE is a not-yet-existing file
   TMPFILE=
   while [ -z "${TMPFILE}" ]
   do
-    PROPOSAL=/tmp/cronsh-${RANDOM}
+    PROPOSAL="/tmp/cronsh-${RANDOM}"
     if [ ! -f "${PROPOSAL}" ]
     then
       TMPFILE="${PROPOSAL}"
@@ -99,18 +110,18 @@ then
     } else {
       print "$_";
     }' src/data.ml > "${TMPFILE}"
-  mv "${TMPFILE}" src/data.ml
+  cp "${TMPFILE}" src/data.ml
 
   MSG="updated build status at $(date);"
 
   # FIXME hardcoded paths -- also elsewhere in code.
   git commit tmpl/wiki/is_mirage_broken.md src/data.ml \
     -m "${MSG}"
-  git push
+  git push "${GITHUB_USER}"
   # make PR from bactrian/master to mirage-www/master
   hub pull-request -m "${MSG}" \
     -b mirage/mirage-www:master \
-    -h ${GITHUB_USER}:master
+    -h "${GITHUB_USER}:master"
 fi
 
 cd ..
