@@ -42,9 +42,7 @@ fi
 
 cd ${IS_MIRAGE_BROKEN_DIR}
 
-# FIXME how to regenerate the running site?
-
-if [ -z "$(where hub)" ]
+if [ -z "$(which hub)" ]
 then
   echo "Missing dependency: hub" >&2
   echo "Can be downloaded from http://hub.github.com/" >&2
@@ -118,7 +116,7 @@ then
   # make PR from bactrian/master to mirage-www/master
   hub pull-request -m "${MSG}" \
     -b mirage/mirage-www:master \
-    -h ${GITHUB_USER}:mater
+    -h ${GITHUB_USER}:master
   # FIXME check outcome of pull request?
 fi
 
